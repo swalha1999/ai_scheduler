@@ -13,9 +13,14 @@ type SendMessagePayload = z.infer<typeof SendMessageSchema>;
 
 export class GowaClient {
   private baseUrl: string;
+  private apiKey: string;
 
-  constructor(baseUrl: string = 'https://khalid.whatsapp.swalha.com') {
+  constructor(
+    baseUrl: string = 'https://khalid.whatsapp.swalha.com',
+    apiKey: string,
+  ) {
     this.baseUrl = baseUrl;
+    this.apiKey = apiKey;
   }
 
   async sendMessage(payload: SendMessagePayload) {
@@ -28,6 +33,7 @@ export class GowaClient {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Basic ${Buffer.from(this.apiKey).toString('base64')}`,
       },
       body: JSON.stringify(validationResult.data),
     });

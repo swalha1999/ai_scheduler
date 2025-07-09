@@ -67,7 +67,10 @@ export async function POST(request: NextRequest) {
         const replay = await replayToWhatsapp(payload.message.text);
         console.log('Replay:', replay);
 
-        const gowa = new GowaClient();
+        const gowa = new GowaClient(
+        	undefined,
+        	process.env.GOWA_API_KEY || ''
+        );
         await gowa.sendMessage({
             phone: payload.from,
             message: replay
