@@ -1,23 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHmac, timingSafeEqual } from 'crypto';
+import { replayToWhatsapp } from '@/core/agents/chat';
+import { GowaClient } from '@/lib/GOWA';
 
 const WHATSAPP_WEBHOOK_SECRET = process.env.WHATSAPP_WEBHOOK_SECRET || 'secret';
 
 function verifySignature(payload: string, signature: string, secret: string): boolean {
-    console.log('Payload:', payload);
-    console.log('Signature:', signature);
-    console.log('Secret:', secret);
 	const hmac = createHmac('sha256', secret);
-    console.log('HMAC:', hmac);
 	hmac.update(payload);
 	const expectedSignature = hmac.digest('hex');
-    console.log('Expected signature:', expectedSignature);
 	
 	// Remove 'sha256=' prefix if present
 	const cleanSignature = signature.replace(/^sha256=/, '');
 
-    console.log('Clean signature:', cleanSignature);
-	
 	// Use timing-safe comparison to prevent timing attacks
 	return timingSafeEqual(
 		Buffer.from(expectedSignature, 'hex'),
@@ -29,14 +24,12 @@ export async function POST(request: NextRequest) {
 	try {
 		// Get the raw body as text for signature verification
 		const body = await request.text();
-        console.log('Body:', body);
 		
 		// Get the signature from headers
 		const signature = request.headers.get('x-signature-256') || 
 						 request.headers.get('x-hub-signature-256') || 
 						 request.headers.get('signature');
 
-        console.log('Signature:', signature);
 		
 		if (!signature) {
             console.log('Missing signature header');
@@ -48,7 +41,7 @@ export async function POST(request: NextRequest) {
 		
 		// Verify the signature
 		if (!verifySignature(body, signature, WHATSAPP_WEBHOOK_SECRET)) {
-            console.log('Invalid signature');
+            console.error('Whatsapp: Webhook signature verification failed');
 			return NextResponse.json(
 				{ error: 'Invalid signature' },
 				{ status: 401 }
@@ -70,6 +63,15 @@ export async function POST(request: NextRequest) {
 		// - Save to database
 		// - Send automated responses
 		// - Process message content
+
+        const replay = await replayToWhatsapp(payload.message.text);
+        console.log('Replay:', replay);
+
+        const gowa = new GowaClient();
+        await gowa.sendMessage({
+            phone: payload.message.from,
+            message: replay
+        });
 		
 		return NextResponse.json(
 			{ 
