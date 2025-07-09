@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
 						 request.headers.get('signature');
 		
 		if (!signature) {
+            console.log('Missing signature header');
 			return NextResponse.json(
 				{ error: 'Missing signature header' },
 				{ status: 401 }
@@ -37,6 +38,7 @@ export async function POST(request: NextRequest) {
 		
 		// Verify the signature
 		if (!verifySignature(body, signature, WEBHOOK_SECRET)) {
+            console.log('Invalid signature');
 			return NextResponse.json(
 				{ error: 'Invalid signature' },
 				{ status: 401 }
