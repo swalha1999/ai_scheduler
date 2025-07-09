@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
 
         const gowa = new GowaClient();
         await gowa.sendMessage({
-            phone: payload.message.from,
+            phone: payload.from,
             message: replay
         });
 		
