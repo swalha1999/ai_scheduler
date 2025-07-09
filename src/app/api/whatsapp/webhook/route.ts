@@ -4,12 +4,19 @@ import { createHmac, timingSafeEqual } from 'crypto';
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || 'secret';
 
 function verifySignature(payload: string, signature: string, secret: string): boolean {
+    console.log('Payload:', payload);
+    console.log('Signature:', signature);
+    console.log('Secret:', secret);
 	const hmac = createHmac('sha256', secret);
+    console.log('HMAC:', hmac);
 	hmac.update(payload);
 	const expectedSignature = hmac.digest('hex');
+    console.log('Expected signature:', expectedSignature);
 	
 	// Remove 'sha256=' prefix if present
 	const cleanSignature = signature.replace(/^sha256=/, '');
+
+    console.log('Clean signature:', cleanSignature);
 	
 	// Use timing-safe comparison to prevent timing attacks
 	return timingSafeEqual(
