@@ -1,0 +1,548 @@
+{
+  "id": "رقم التعريف",
+  "auth": {
+    "layout": {
+      "terms": "الشروط والأحكام",
+      "privacy": "سياسة الخصوصية"
+    },
+    "login": {
+      "too_many_requests": "طلبات كثيرة جداً",
+      "title": "تسجيل الدخول",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "create_account": "إنشاء حساب",
+      "forgot_password": "نسيت كلمة المرور؟"
+    },
+    "signup": {
+      "title": "إنشاء حساب جديد",
+      "requirements": "يرجى ملء جميع الحقول المطلوبة لإنشاء حسابك",
+      "username": "اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "email_placeholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "password_placeholder": "أدخل كلمة المرور",
+      "submit": "إنشاء الحساب",
+      "have_account": "لديك حساب بالفعل؟ تسجيل الدخول",
+      "loading": "جاري التحميل..."
+    }
+  },
+  "dashboard": {
+    "page": {
+      "title": "لوحة التحكم",
+      "welcome": "مرحباً بك في لوحة التحكم"
+    }
+  },
+  "super": {
+    "breadcrumb": {
+      "main": "لوحة الإدارة",
+      "main_users": "المستخدمين",
+      "main_developers": "المطورين",
+      "main_properties": "العقارات",
+      "main_properties_create": "إنشاء عقار",
+      "main_properties_propertie_id": "تفاصيل العقار",
+      "main_properties_propertie_id_edit": "تعديل العقار",
+      "main_contacts": "جهات الاتصال",
+      "main_contacts_new": "جهة اتصال جديدة"
+    },
+    "metadata": {
+      "title": "لوحة الإدارة",
+      "description": "إدارة النظام والمراقبة"
+    },
+    "page": {
+      "welcome": "مرحباً بك في لوحة الإدارة"
+    },
+    "users": {
+      "page": {
+        "title": "إدارة المستخدمين",
+        "create_user": "إنشاء مستخدم"
+      },
+      "create_user_button": {
+        "create_user": "إنشاء مستخدم"
+      },
+      "table": {
+        "username": "اسم المستخدم",
+        "email": "البريد الإلكتروني",
+        "roles": "الأدوار",
+        "actions": "الإجراءات",
+        "super_admin": "مدير عام",
+        "admin": "مدير",
+        "remove_admin": "إزالة المدير",
+        "make_admin": "تعيين مدير",
+        "remove_super_admin": "إزالة المدير العام",
+        "make_super_admin": "تعيين مدير عام",
+        "login_as_user": "تسجيل الدخول كالمستخدم",
+        "change_username": "تغيير اسم المستخدم",
+        "change_password": "تغيير كلمة المرور",
+        "delete_user": "حذف المستخدم",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "admin_toggled": "تم تغيير حالة المدير بنجاح",
+          "super_admin_toggled": "تم تغيير حالة المدير العام بنجاح",
+          "login_as_user": "تم تسجيل الدخول كالمستخدم بنجاح",
+          "error_message": "حدث خطأ أثناء تنفيذ العملية"
+        }
+      },
+      "change_password_dialog": {
+        "title": "تغيير كلمة المرور",
+        "description": "تغيير كلمة المرور للمستخدم",
+        "new_password": "كلمة المرور الجديدة",
+        "new_password_placeholder": "أدخل كلمة المرور الجديدة",
+        "cancel": "إلغاء",
+        "changing": "جاري التغيير...",
+        "confirm": "تأكيد",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "password_changed": "تم تغيير كلمة المرور بنجاح",
+          "error_message": "حدث خطأ أثناء تغيير كلمة المرور"
+        }
+      },
+      "create_user_dialog": {
+        "title": "إنشاء مستخدم جديد",
+        "description": "أدخل بيانات المستخدم الجديد",
+        "username": "اسم المستخدم",
+        "username_placeholder": "أدخل اسم المستخدم",
+        "email": "البريد الإلكتروني",
+        "email_placeholder": "أدخل البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "password_placeholder": "أدخل كلمة المرور",
+        "is_admin": "مدير",
+        "is_super_admin": "مدير عام",
+        "cancel": "إلغاء",
+        "creating": "جاري الإنشاء...",
+        "create": "إنشاء",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "user_created": "تم إنشاء المستخدم بنجاح",
+          "error_message": "حدث خطأ أثناء إنشاء المستخدم"
+        }
+      },
+      "delete_user_dialog": {
+        "title": "حذف المستخدم",
+        "description": "هل أنت متأكد من حذف المستخدم {username}؟",
+        "cancel": "إلغاء",
+        "deleting": "جاري الحذف...",
+        "delete": "حذف",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "user_deleted": "تم حذف المستخدم بنجاح",
+          "error_message": "حدث خطأ أثناء حذف المستخدم"
+        }
+      },
+      "change_username_dialog": {
+        "title": "تغيير اسم المستخدم",
+        "description": "تغيير اسم المستخدم للمستخدم",
+        "new_username": "اسم المستخدم الجديد",
+        "new_username_placeholder": "أدخل اسم المستخدم الجديد",
+        "cancel": "إلغاء",
+        "changing": "جاري التغيير...",
+        "confirm": "تأكيد",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "username_changed": "تم تغيير اسم المستخدم بنجاح",
+          "error_message": "حدث خطأ أثناء تغيير اسم المستخدم"
+        }
+      }
+    },
+    "developers": {
+      "page": {
+        "title": "إدارة المطورين",
+        "create_developer": "إضافة مطور"
+      },
+      "table": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "company_info": "معلومات الشركة",
+        "total_properties": "إجمالي العقارات",
+        "created_at": "تاريخ الإنشاء",
+        "actions": "الإجراءات",
+        "edit_developer": "تعديل المطور",
+        "delete_developer": "حذف المطور",
+        "view_properties": "عرض العقارات",
+        "no_developers": "لم يتم العثور على مطورين",
+        "search_placeholder": "البحث عن المطورين...",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "developer_created": "تم إنشاء المطور بنجاح",
+          "developer_updated": "تم تحديث المطور بنجاح",
+          "developer_deleted": "تم حذف المطور بنجاح",
+          "error_message": "حدث خطأ أثناء تنفيذ العملية"
+        }
+      },
+      "create_developer_dialog": {
+        "title": "إضافة مطور جديد",
+        "description": "أدخل بيانات المطور الجديد",
+        "name": "الاسم",
+        "name_placeholder": "أدخل اسم المطور",
+        "email": "البريد الإلكتروني",
+        "email_placeholder": "أدخل عنوان البريد الإلكتروني",
+        "phone": "الهاتف",
+        "phone_placeholder": "أدخل رقم الهاتف (اختياري)",
+        "company_info": "معلومات الشركة",
+        "company_info_placeholder": "أدخل معلومات الشركة (اختياري)",
+        "cancel": "إلغاء",
+        "creating": "جاري الإنشاء...",
+        "create": "إنشاء",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "developer_created": "تم إنشاء المطور بنجاح",
+          "error_message": "حدث خطأ أثناء إنشاء المطور"
+        }
+      },
+      "edit_developer_dialog": {
+        "title": "تعديل المطور",
+        "description": "تحديث بيانات المطور",
+        "name": "الاسم",
+        "name_placeholder": "أدخل اسم المطور",
+        "email": "البريد الإلكتروني",
+        "email_placeholder": "أدخل عنوان البريد الإلكتروني",
+        "phone": "الهاتف",
+        "phone_placeholder": "أدخل رقم الهاتف (اختياري)",
+        "company_info": "معلومات الشركة",
+        "company_info_placeholder": "أدخل معلومات الشركة (اختياري)",
+        "cancel": "إلغاء",
+        "updating": "جاري التحديث...",
+        "update": "تحديث",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "developer_updated": "تم تحديث المطور بنجاح",
+          "error_message": "حدث خطأ أثناء تحديث المطور"
+        }
+      },
+      "delete_developer_dialog": {
+        "title": "حذف المطور",
+        "description": "هل أنت متأكد من أنك تريد حذف {name}؟",
+        "description_with_properties": "هذا المطور لديه {count} عقارات مرتبطة. هل أنت متأكد من أنك تريد حذف {name}؟",
+        "cancel": "إلغاء",
+        "deleting": "جاري الحذف...",
+        "delete": "حذف",
+        "toast": {
+          "success": "تم بنجاح",
+          "error": "خطأ",
+          "developer_deleted": "تم حذف المطور بنجاح",
+          "error_message": "حدث خطأ أثناء حذف المطور"
+        }
+      }
+    },
+    "sidebar": {
+      "platform": "المنصة",
+      "users": "المستخدمين",
+      "properties": "العقارات",
+      "developers": "المطورين",
+      "debug": "التصحيح",
+      "contacts": "جهات الاتصال",
+      "families": "العائلات",
+      "user_controls": {
+        "upgradetopro": "ترقية إلى Pro",
+        "account": "الحساب",
+        "billing": "الفوترة",
+        "notifications": "الإشعارات",
+        "darkmode": "الوضع المظلم",
+        "lightmode": "الوضع المضيء",
+        "logout": "تسجيل الخروج"
+      }
+    },
+    "contacts": {
+      "page": {
+        "page_title": "إدارة جهات الاتصال",
+        "add_contact_button": "إضافة جهة اتصال"
+      },
+      "contacts_list": {
+        "total_contacts": "إجمالي جهات الاتصال",
+        "total_households": "إجمالي الأسر",
+        "total_opted_in": "إجمالي الموافقين",
+        "total_declined": "إجمالي الرافضين",
+        "total_didnt_respond": "إجمالي من لم يستجيبوا",
+        "total_failed": "إجمالي الفاشلين",
+        "total_didnt_send": "إجمالي من لم يرسل لهم",
+        "page": "صفحة",
+        "of": "من",
+        "first_page": "الصفحة الأولى",
+        "previous_page": "الصفحة السابقة",
+        "next_page": "الصفحة التالية",
+        "last_page": "الصفحة الأخيرة",
+        "view_contacts": "عرض {count} من أصل {total} جهة اتصال",
+        "consent_status": {
+          "gave_consent": "أعطى الموافقة",
+          "no_response": "لم يستجب",
+          "declined": "رفض",
+          "concent_message_not_sent": "لم يرسل رسالة الموافقة",
+          "concent_message_failed": "فشلت رسالة الموافقة"
+        },
+        "contacts_table": {
+          "contact_title": "اللقب",
+          "first_name": "الاسم الأول",
+          "middle_name": "الاسم الأوسط",
+          "family_name": "اسم العائلة",
+          "previous_family_name": "اسم العائلة السابق",
+          "phone": "الهاتف",
+          "village": "القرية",
+          "personal_number": "الرقم الشخصي",
+          "home_number": "رقم المنزل",
+          "hood": "الحارة",
+          "admin_approval": "اعتماد الإدارة",
+          "consent": "الموافقة",
+          "actions": "الإجراءات",
+          "no_contacts_found": "لا توجد جهات اتصال متطابقة مع المرشحات المحددة",
+          "search_placeholder": "بحث..."
+        },
+        "actions_dropdown": {
+          "actions": "الإجراءات",
+          "action_edit": "تعديل",
+          "action_delete": "حذف",
+          "action_mark_as_opt_out": "تحديد كرافض",
+          "action_send_consent": "إرسال رسالة الموافقة",
+          "action_reset_consent": "إعادة تعيين الموافقة",
+          "approved": "معتمد",
+          "not_approved": "غير معتمد"
+        },
+        "status_dropdown": {
+          "concent_message_not_sent": "لم يرسل رسالة الموافقة",
+          "no_response": "لم يستجب",
+          "gave_consent": "أعطى الموافقة",
+          "declined": "رفض",
+          "concent_message_failed": "فشلت رسالة الموافقة"
+        },
+        "send_all_consent_button": {
+          "send_consent_to_all": "إرسال الموافقة للجميع",
+          "sending_all": "جاري الإرسال...",
+          "sent_all": "تم الإرسال للجميع"
+        },
+        "bulk_approval_button": {
+          "approve_all": "اعتماد الكل",
+          "approving_all": "جاري اعتماد الكل...",
+          "approved_all": "تم اعتماد الكل",
+          "unapprove_all": "إلغاء اعتماد الكل",
+          "unapproving_all": "جاري إلغاء اعتماد الكل...",
+          "unapproved_all": "تم إلغاء اعتماد الكل"
+        },
+        "approved": "معتمد",
+        "not_approved": "غير معتمد",
+        "filters": {
+          "all_towns": "كل البلدات",
+          "town": "البلدة",
+          "select_town": "اختر البلدة",
+          "all_streets": "كل الحارات",
+          "street": "الحارة",
+          "select_street": "اختر الحارة",
+          "all_families": "كل العائلات",
+          "family": "العائلة",
+          "select_family": "اختر العائلة",
+          "all_statuses": "كل الحالات",
+          "consent_status": {
+            "title": "حالة الموافقة"
+          },
+          "select_status": "اختر الحالة",
+          "approval_status": "حالة الاعتماد",
+          "gave_consent": "أعطى الموافقة",
+          "no_response": "لم يستجب",
+          "declined": "رفض",
+          "concent_message_not_sent": "لم يرسل رسالة الموافقة",
+          "concent_message_failed": "فشلت رسالة الموافقة",
+          "approved": "معتمد",
+          "not_approved": "غير معتمد"
+        }
+      },
+      "new_contacts": {
+        "personal_info": "المعلومات الشخصية",
+        "first_name": "الاسم الأول",
+        "middle_name": "الاسم الأوسط",
+        "previous_family": "اسم العائلة السابق",
+        "birth_year": "سنة الميلاد",
+        "gender": "الجنس",
+        "select_gender": "اختر الجنس",
+        "family": "العائلة",
+        "select_family": "اختر العائلة",
+        "contact_info": "معلومات الاتصال",
+        "phone": "الهاتف",
+        "phone_placeholder": "أدخل رقم الهاتف",
+        "address_info": "معلومات العنوان",
+        "personal_number": "الرقم الشخصي",
+        "home_number": "رقم المنزل",
+        "hood": "الحارة",
+        "village": "القرية",
+        "adding_contact": "جاري الإضافة...",
+        "add_contact": "إضافة جهة اتصال"
+      },
+      "edit_contact_form": {
+        "page_title": "تعديل جهة الاتصال",
+        "first_name": "الاسم الأول",
+        "middle_name": "الاسم الأوسط",
+        "family": "العائلة",
+        "select_family": "اختر العائلة",
+        "previous_family": "اسم العائلة السابق",
+        "phone": "الهاتف",
+        "phone_placeholder": "أدخل رقم الهاتف",
+        "personal_number": "الرقم الشخصي",
+        "home_number": "رقم المنزل",
+        "street_number": "رقم الشارع",
+        "town": "القرية",
+        "birth_year": "سنة الميلاد",
+        "gender": "الجنس",
+        "select_gender": "اختر الجنس",
+        "saving": "جاري الحفظ...",
+        "save": "حفظ"
+      }
+    }
+  },
+  "properties": {
+    "title": "إدارة العقارات",
+    "page": {
+      "title": "إدارة العقارات",
+      "description": "إدارة جميع العقارات في النظام"
+    },
+    "table": {
+      "title": "العنوان",
+      "price": "السعر",
+      "location": "الموقع",
+      "property_type": "نوع العقار",
+      "listing_type": "نوع القائمة",
+      "bedrooms": "غرف النوم",
+      "bathrooms": "الحمامات",
+      "area": "المساحة",
+      "is_available": "متاح",
+      "is_featured": "مميز",
+      "actions": "الإجراءات",
+      "edit_property": "تعديل العقار",
+      "delete_property": "حذف العقار",
+      "no_properties": "لم يتم العثور على عقارات"
+    },
+    "create_property_dialog": {
+      "title": "إنشاء عقار جديد",
+      "description": "إضافة عقار جديد إلى النظام",
+      "title_label": "العنوان",
+      "title_placeholder": "فيلا فاخرة حديثة",
+      "description_label": "الوصف",
+      "description_placeholder": "فيلا حديثة جميلة بإطلالة خلابة على المحيط...",
+      "property_type_label": "نوع العقار",
+      "listing_type_label": "نوع القائمة",
+      "price_label": "السعر",
+      "area_label": "المساحة (قدم مربع)",
+      "bedrooms_label": "غرف النوم",
+      "bathrooms_label": "الحمامات",
+      "location_label": "الموقع",
+      "address_label": "العنوان الكامل",
+      "year_built_label": "سنة البناء",
+      "parking_spaces_label": "مواقف السيارات",
+      "latitude_label": "خط العرض",
+      "longitude_label": "خط الطول",
+      "agent_name_label": "اسم الوكيل",
+      "agent_phone_label": "هاتف الوكيل",
+      "agent_email_label": "بريد الوكيل الإلكتروني",
+      "virtual_tour_url_label": "رابط الجولة الافتراضية",
+      "monthly_rent_label": "الإيجار الشهري",
+      "annual_appreciation_rate_label": "معدل التقدير السنوي (%)",
+      "amenities_label": "المرافق",
+      "amenities_placeholder": "مسبح، إطلالة على المحيط، حديقة، مرآب (مفصولة بفواصل)",
+      "amenities_description": "أدخل المرافق مفصولة بفواصل",
+      "is_available_label": "متاح",
+      "is_featured_label": "مميز",
+      "property_images_label": "صور العقار",
+      "cancel": "إلغاء",
+      "creating": "جاري الإنشاء...",
+      "create": "إنشاء العقار",
+      "toast": {
+        "success": "نجح",
+        "error": "خطأ",
+        "property_created": "تم إنشاء العقار بنجاح",
+        "error_message": "حدث خطأ أثناء إنشاء العقار"
+      }
+    },
+    "edit_property_dialog": {
+      "title": "تعديل العقار",
+      "description": "تعديل العقار: {title}",
+      "title_label": "العنوان",
+      "title_placeholder": "فيلا فاخرة حديثة",
+      "description_label": "الوصف",
+      "description_placeholder": "فيلا حديثة جميلة بإطلالة خلابة على المحيط...",
+      "property_type_label": "نوع العقار",
+      "listing_type_label": "نوع القائمة",
+      "price_label": "السعر",
+      "area_label": "المساحة (قدم مربع)",
+      "bedrooms_label": "غرف النوم",
+      "bathrooms_label": "الحمامات",
+      "location_label": "الموقع",
+      "address_label": "العنوان الكامل",
+      "year_built_label": "سنة البناء",
+      "parking_spaces_label": "مواقف السيارات",
+      "latitude_label": "خط العرض",
+      "longitude_label": "خط الطول",
+      "agent_name_label": "اسم الوكيل",
+      "agent_phone_label": "هاتف الوكيل",
+      "agent_email_label": "بريد الوكيل الإلكتروني",
+      "virtual_tour_url_label": "رابط الجولة الافتراضية",
+      "monthly_rent_label": "الإيجار الشهري",
+      "annual_appreciation_rate_label": "معدل التقدير السنوي (%)",
+      "amenities_label": "المرافق",
+      "amenities_placeholder": "مسبح، إطلالة على المحيط، حديقة، مرآب (مفصولة بفواصل)",
+      "amenities_description": "أدخل المرافق مفصولة بفواصل",
+      "is_available_label": "متاح",
+      "is_featured_label": "مميز",
+      "property_images_label": "صور العقار",
+      "cancel": "إلغاء",
+      "updating": "جاري التحديث...",
+      "update": "تحديث العقار",
+      "toast": {
+        "success": "نجح",
+        "error": "خطأ",
+        "property_updated": "تم تحديث العقار بنجاح",
+        "error_message": "حدث خطأ أثناء تحديث العقار"
+      }
+    },
+    "delete_property_dialog": {
+      "title": "حذف العقار",
+      "description": "هل أنت متأكد من أنك تريد حذف العقار {title}؟",
+      "cancel": "إلغاء",
+      "deleting": "جاري الحذف...",
+      "delete": "حذف",
+      "toast": {
+        "success": "نجح",
+        "error": "خطأ",
+        "property_deleted": "تم حذف العقار بنجاح",
+        "error_message": "حدث خطأ أثناء حذف العقار"
+      }
+    },
+    "property_types": {
+      "villa": "فيلا",
+      "apartment": "شقة",
+      "house": "منزل",
+      "commercial": "تجاري",
+      "land": "أرض",
+      "other": "أخرى"
+    },
+    "listing_types": {
+      "sale": "للبيع",
+      "rent": "للإيجار",
+      "both": "كلاهما"
+    },
+    "add_property": "إضافة عقار",
+    "create": {
+      "title": "إنشاء عقار جديد",
+      "description": "إضافة عقار جديد للنظام"
+    },
+    "edit": {
+      "title": "تعديل العقار",
+      "description": "تعديل العقار"
+    }
+  },
+  "a11y": {
+    "accessibility": "إمكانية الوصول",
+    "increaseTextSize": "زيادة حجم النص",
+    "decreaseTextSize": "تقليل حجم النص",
+    "grayscale": "رمادي",
+    "highContrast": "تباين عالي",
+    "invertColors": "عكس الألوان",
+    "highlightLinks": "تمييز الروابط",
+    "readableFont": "خط مقروء",
+    "textToSpeech": "النص إلى كلام"
+  }
+}

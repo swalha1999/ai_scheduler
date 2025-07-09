@@ -1,0 +1,9 @@
+{
+	"entry": [
+		"./src/**/page.tsx",
+		"./src/**/route.ts",
+		"./src/seed/index.ts",
+		"./src/**/actions.ts"
+	],
+	"ignore": ["build/**", "dist/**", "src/generated.ts", "src/components/ui/**", ".templates/**"]
+}

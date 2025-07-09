@@ -1,0 +1,548 @@
+{
+  "id": "ID",
+  "auth": {
+    "layout": {
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy"
+    },
+    "login": {
+      "too_many_requests": "Too many requests",
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Login",
+      "create_account": "Create Account",
+      "forgot_password": "Forgot Password?"
+    },
+    "signup": {
+      "title": "Create New Account",
+      "requirements": "Please fill in all required fields to create your account",
+      "username": "Username",
+      "email": "Email",
+      "email_placeholder": "Enter your email",
+      "password": "Password",
+      "password_placeholder": "Enter password",
+      "submit": "Create Account",
+      "have_account": "Already have an account? Login",
+      "loading": "Loading..."
+    }
+  },
+  "dashboard": {
+    "page": {
+      "title": "Dashboard",
+      "welcome": "Welcome to the Dashboard"
+    }
+  },
+  "super": {
+    "breadcrumb": {
+      "main": "Admin Dashboard",
+      "main_users": "Users",
+      "main_developers": "Developers",
+      "main_properties": "Properties",
+      "main_properties_create": "Create Property",
+      "main_properties_propertie_id_edit": "Edit Property",
+      "main_contacts": "Contacts",
+      "main_contacts_new": "New Contact"
+    },
+    "metadata": {
+      "title": "Admin Dashboard",
+      "description": "System management and monitoring"
+    },
+    "page": {
+      "welcome": "Welcome to the Admin Dashboard"
+    },
+    "users": {
+      "page": {
+        "title": "User Management",
+        "create_user": "Create User"
+      },
+      "table": {
+        "username": "Username",
+        "email": "Email",
+        "roles": "Roles",
+        "actions": "Actions",
+        "super_admin": "Super Admin",
+        "admin": "Admin",
+        "remove_admin": "Remove Admin",
+        "make_admin": "Make Admin",
+        "remove_super_admin": "Remove Super Admin",
+        "make_super_admin": "Make Super Admin",
+        "login_as_user": "Login as User",
+        "change_username": "Change Username",
+        "change_password": "Change Password",
+        "delete_user": "Delete User",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "admin_toggled": "Admin status toggled successfully",
+          "super_admin_toggled": "Super admin status toggled successfully",
+          "login_as_user": "Login as user successful",
+          "error_message": "An error occurred while performing the operation"
+        }
+      },
+      "change_password_dialog": {
+        "title": "Change Password",
+        "description": "Change password for user",
+        "new_password": "New Password",
+        "new_password_placeholder": "Enter new password",
+        "cancel": "Cancel",
+        "changing": "Changing...",
+        "confirm": "Confirm",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "password_changed": "Password changed successfully",
+          "error_message": "An error occurred while changing password"
+        }
+      },
+      "create_user_dialog": {
+        "title": "Create New User",
+        "description": "Enter details for the new user",
+        "username": "Username",
+        "username_placeholder": "Enter username",
+        "email": "Email",
+        "email_placeholder": "Enter email",
+        "password": "Password",
+        "password_placeholder": "Enter password",
+        "is_admin": "Admin",
+        "is_super_admin": "Super Admin",
+        "cancel": "Cancel",
+        "creating": "Creating...",
+        "create": "Create",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "user_created": "User created successfully",
+          "error_message": "An error occurred while creating user"
+        }
+      },
+      "delete_user_dialog": {
+        "title": "Delete User",
+        "description": "Are you sure you want to delete user {username}?",
+        "cancel": "Cancel",
+        "deleting": "Deleting...",
+        "delete": "Delete",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "user_deleted": "User deleted successfully",
+          "error_message": "An error occurred while deleting user"
+        }
+      },
+      "change_username_dialog": {
+        "title": "Change Username",
+        "description": "Change username for user",
+        "new_username": "New Username",
+        "new_username_placeholder": "Enter new username",
+        "cancel": "Cancel",
+        "changing": "Changing...",
+        "confirm": "Confirm",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "username_changed": "Username changed successfully",
+          "error_message": "An error occurred while changing username"
+        }
+      },
+      "create_user_button": {
+        "create_user": "Craete user"
+      }
+    },
+    "developers": {
+      "page": {
+        "title": "Developer Management",
+        "create_developer": "Add Developer"
+      },
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company_info": "Company Info",
+        "total_properties": "Total Properties",
+        "created_at": "Created At",
+        "actions": "Actions",
+        "edit_developer": "Edit Developer",
+        "delete_developer": "Delete Developer",
+        "view_properties": "View Properties",
+        "no_developers": "No developers found",
+        "search_placeholder": "Search developers...",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "developer_created": "Developer created successfully",
+          "developer_updated": "Developer updated successfully",
+          "developer_deleted": "Developer deleted successfully",
+          "error_message": "An error occurred while performing the operation"
+        }
+      },
+      "create_developer_dialog": {
+        "title": "Add New Developer",
+        "description": "Enter details for the new developer",
+        "name": "Name",
+        "name_placeholder": "Enter developer name",
+        "email": "Email",
+        "email_placeholder": "Enter email address",
+        "phone": "Phone",
+        "phone_placeholder": "Enter phone number (optional)",
+        "company_info": "Company Info",
+        "company_info_placeholder": "Enter company information (optional)",
+        "cancel": "Cancel",
+        "creating": "Creating...",
+        "create": "Create",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "developer_created": "Developer created successfully",
+          "error_message": "An error occurred while creating developer"
+        }
+      },
+      "edit_developer_dialog": {
+        "title": "Edit Developer",
+        "description": "Update developer details",
+        "name": "Name",
+        "name_placeholder": "Enter developer name",
+        "email": "Email",
+        "email_placeholder": "Enter email address",
+        "phone": "Phone",
+        "phone_placeholder": "Enter phone number (optional)",
+        "company_info": "Company Info",
+        "company_info_placeholder": "Enter company information (optional)",
+        "cancel": "Cancel",
+        "updating": "Updating...",
+        "update": "Update",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "developer_updated": "Developer updated successfully",
+          "error_message": "An error occurred while updating developer"
+        }
+      },
+      "delete_developer_dialog": {
+        "title": "Delete Developer",
+        "description": "Are you sure you want to delete {name}?",
+        "description_with_properties": "This developer has {count} properties linked. Are you sure you want to delete {name}?",
+        "cancel": "Cancel",
+        "deleting": "Deleting...",
+        "delete": "Delete",
+        "toast": {
+          "success": "Success",
+          "error": "Error",
+          "developer_deleted": "Developer deleted successfully",
+          "error_message": "An error occurred while deleting developer"
+        }
+      }
+    },
+    "sidebar": {
+      "platform": "Platform",
+      "users": "Users",
+      "properties": "Properties",
+      "developers": "Developers",
+      "debug": "Debug",
+      "contacts": "Contacts",
+      "families": "Families",
+      "user_controls": {
+        "upgradetopro": "Upgrade to Pro",
+        "account": "Account",
+        "billing": "Billing",
+        "notifications": "Notifications",
+        "darkmode": "Dark Mode",
+        "lightmode": "Light Mode",
+        "logout": "Logout"
+      }
+    },
+    "contacts": {
+      "page": {
+        "page_title": "Contact Management",
+        "add_contact_button": "Add Contact"
+      },
+      "contacts_list": {
+        "total_contacts": "Total Contacts",
+        "total_households": "Total Households",
+        "total_opted_in": "Total Opted In",
+        "total_declined": "Total Declined",
+        "total_didnt_respond": "Total Didn't Respond",
+        "total_failed": "Total Failed",
+        "total_didnt_send": "Total Didn't Send",
+        "page": "Page",
+        "of": "of",
+        "first_page": "First Page",
+        "previous_page": "Previous Page",
+        "next_page": "Next Page",
+        "last_page": "Last Page",
+        "contacts_list": "Contacts List",
+        "view_contacts": "Showing {count} of {total} contacts",
+        "consent_status": {
+          "gave_consent": "Gave Consent",
+          "no_response": "No Response",
+          "declined": "Declined",
+          "concent_message_not_sent": "Consent Message Not Sent",
+          "concent_message_failed": "Consent Message Failed"
+        },
+        "contacts_table": {
+          "contact_title": "Title",
+          "first_name": "First Name",
+          "middle_name": "Middle Name",
+          "family_name": "Family Name",
+          "previous_family_name": "Previous Family Name",
+          "phone": "Phone",
+          "village": "Village",
+          "personal_number": "Personal Number",
+          "home_number": "Home Number",
+          "hood": "Hood",
+          "admin_approval": "Admin Approval",
+          "consent": "Consent",
+          "actions": "Actions",
+          "no_contacts_found": "No contacts found matching the selected filters",
+          "search_placeholder": "Search..."
+        },
+        "actions_dropdown": {
+          "actions": "Actions",
+          "action_edit": "Edit",
+          "action_delete": "Delete",
+          "action_mark_as_opt_out": "Mark as Opt Out",
+          "action_send_consent": "Send Consent Message",
+          "action_reset_consent": "Reset Consent",
+          "approved": "Approved",
+          "not_approved": "Not Approved"
+        },
+        "status_dropdown": {
+          "concent_message_not_sent": "Consent Message Not Sent",
+          "no_response": "No Response",
+          "gave_consent": "Gave Consent",
+          "declined": "Declined",
+          "concent_message_failed": "Consent Message Failed"
+        },
+        "send_all_consent_button": {
+          "send_consent_to_all": "Send Consent to All",
+          "sending_all": "Sending...",
+          "sent_all": "Sent to All"
+        },
+        "bulk_approval_button": {
+          "approve_all": "Approve All",
+          "approving_all": "Approving All...",
+          "approved_all": "All Approved",
+          "unapprove_all": "Unapprove All",
+          "unapproving_all": "Unapproving All...",
+          "unapproved_all": "All Unapproved"
+        },
+        "approved": "Approved",
+        "not_approved": "Not Approved",
+        "filters": {
+          "all_towns": "All Towns",
+          "town": "Town",
+          "select_town": "Select Town",
+          "all_streets": "All Streets",
+          "street": "Street",
+          "select_street": "Select Street",
+          "all_families": "All Families",
+          "family": "Family",
+          "select_family": "Select Family",
+          "all_statuses": "All Statuses",
+          "consent_status": {
+            "title": "Consent Status"
+          },
+          "select_status": "Select Status",
+          "approval_status": "Approval Status",
+          "gave_consent": "Gave Consent",
+          "no_response": "No Response",
+          "declined": "Declined",
+          "concent_message_not_sent": "Consent Message Not Sent",
+          "concent_message_failed": "Consent Message Failed",
+          "approved": "Approved",
+          "not_approved": "Not Approved"
+        }
+      },
+      "new_contacts": {
+        "personal_info": "Personal Information",
+        "first_name": "First Name",
+        "middle_name": "Middle Name",
+        "previous_family": "Previous Family Name",
+        "birth_year": "Birth Year",
+        "gender": "Gender",
+        "select_gender": "Select Gender",
+        "family": "Family",
+        "select_family": "Select Family",
+        "contact_info": "Contact Information",
+        "phone": "Phone",
+        "phone_placeholder": "Enter phone number",
+        "address_info": "Address Information",
+        "personal_number": "Personal Number",
+        "home_number": "Home Number",
+        "hood": "Hood",
+        "village": "Village",
+        "adding_contact": "Adding...",
+        "add_contact": "Add Contact"
+      },
+      "edit_contact_form": {
+        "page_title": "Edit Contact",
+        "first_name": "First Name",
+        "middle_name": "Middle Name",
+        "family": "Family",
+        "select_family": "Select Family",
+        "previous_family": "Previous Family Name",
+        "phone": "Phone",
+        "phone_placeholder": "Enter phone number",
+        "personal_number": "Personal Number",
+        "home_number": "Home Number",
+        "street_number": "Street Number",
+        "town": "Village",
+        "birth_year": "Birth Year",
+        "gender": "Gender",
+        "select_gender": "Select Gender",
+        "saving": "Saving...",
+        "save": "Save"
+      }
+    }
+  },
+  "properties": {
+    "title": "Property Management",
+    "page": {
+      "title": "Property Management",
+      "description": "Manage all properties in the system"
+    },
+    "table": {
+      "title": "Title",
+      "price": "Price",
+      "location": "Location",
+      "property_type": "Property Type",
+      "listing_type": "Listing Type",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "area": "Area",
+      "is_available": "Available",
+      "is_featured": "Featured",
+      "actions": "Actions",
+      "edit_property": "Edit Property",
+      "delete_property": "Delete Property",
+      "no_properties": "No properties found"
+    },
+    "create_property_dialog": {
+      "title": "Create New Property",
+      "description": "Add a new property to the system",
+      "title_label": "Title",
+      "title_placeholder": "Modern Luxury Villa",
+      "description_label": "Description",
+      "description_placeholder": "Beautiful modern villa with stunning ocean views...",
+      "property_type_label": "Property Type",
+      "listing_type_label": "Listing Type",
+      "price_label": "Price",
+      "area_label": "Area (sq ft)",
+      "bedrooms_label": "Bedrooms",
+      "bathrooms_label": "Bathrooms",
+      "location_label": "Location",
+      "address_label": "Full Address",
+      "year_built_label": "Year Built",
+      "parking_spaces_label": "Parking Spaces",
+      "latitude_label": "Latitude",
+      "longitude_label": "Longitude",
+      "agent_name_label": "Agent Name",
+      "agent_phone_label": "Agent Phone",
+      "agent_email_label": "Agent Email",
+      "virtual_tour_url_label": "Virtual Tour URL",
+      "monthly_rent_label": "Monthly Rent",
+      "annual_appreciation_rate_label": "Annual Appreciation Rate (%)",
+      "amenities_label": "Amenities",
+      "amenities_placeholder": "Swimming Pool, Ocean View, Garden, Garage (comma separated)",
+      "amenities_description": "Enter amenities separated by commas",
+      "is_available_label": "Available",
+      "is_featured_label": "Featured",
+      "property_images_label": "Property Images",
+      "cancel": "Cancel",
+      "creating": "Creating...",
+      "create": "Create Property",
+      "toast": {
+        "success": "Success",
+        "error": "Error",
+        "property_created": "Property created successfully",
+        "error_message": "An error occurred while creating property"
+      }
+    },
+    "edit_property_dialog": {
+      "title": "Edit Property",
+      "description": "Edit property: {title}",
+      "title_label": "Title",
+      "title_placeholder": "Modern Luxury Villa",
+      "description_label": "Description",
+      "description_placeholder": "Beautiful modern villa with stunning ocean views...",
+      "property_type_label": "Property Type",
+      "listing_type_label": "Listing Type",
+      "price_label": "Price",
+      "area_label": "Area (sq ft)",
+      "bedrooms_label": "Bedrooms",
+      "bathrooms_label": "Bathrooms",
+      "location_label": "Location",
+      "address_label": "Full Address",
+      "year_built_label": "Year Built",
+      "parking_spaces_label": "Parking Spaces",
+      "latitude_label": "Latitude",
+      "longitude_label": "Longitude",
+      "agent_name_label": "Agent Name",
+      "agent_phone_label": "Agent Phone",
+      "agent_email_label": "Agent Email",
+      "virtual_tour_url_label": "Virtual Tour URL",
+      "monthly_rent_label": "Monthly Rent",
+      "annual_appreciation_rate_label": "Annual Appreciation Rate (%)",
+      "amenities_label": "Amenities",
+      "amenities_placeholder": "Swimming Pool, Ocean View, Garden, Garage (comma separated)",
+      "amenities_description": "Enter amenities separated by commas",
+      "is_available_label": "Available",
+      "is_featured_label": "Featured",
+      "property_images_label": "Property Images",
+      "cancel": "Cancel",
+      "updating": "Updating...",
+      "update": "Update Property",
+      "toast": {
+        "success": "Success",
+        "error": "Error",
+        "property_updated": "Property updated successfully",
+        "error_message": "An error occurred while updating property"
+      }
+    },
+    "delete_property_dialog": {
+      "title": "Delete Property",
+      "description": "Are you sure you want to delete property {title}?",
+      "cancel": "Cancel",
+      "deleting": "Deleting...",
+      "delete": "Delete",
+      "toast": {
+        "success": "Success",
+        "error": "Error",
+        "property_deleted": "Property deleted successfully",
+        "error_message": "An error occurred while deleting property"
+      }
+    },
+    "property_types": {
+      "villa": "Villa",
+      "apartment": "Apartment",
+      "house": "House",
+      "commercial": "Commercial",
+      "land": "Land",
+      "other": "Other"
+    },
+    "listing_types": {
+      "sale": "For Sale",
+      "rent": "For Rent",
+      "both": "Both"
+    },
+    "add_property": "Add Property",
+    "create": {
+      "title": "Create New Property",
+      "description": "Add a new property to the system"
+    },
+    "edit": {
+      "title": "Edit Property",
+      "description": "Edit property"
+    }
+  },
+  "a11y": {
+    "accessibility": "Accessibility",
+    "increaseTextSize": "Increase Text Size",
+    "decreaseTextSize": "Decrease Text Size",
+    "grayscale": "Grayscale",
+    "highContrast": "High Contrast",
+    "invertColors": "Invert Colors",
+    "highlightLinks": "Highlight Links",
+    "readableFont": "Readable Font",
+    "textToSpeech": "Text to Speech"
+  }
+}

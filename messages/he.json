@@ -1,0 +1,549 @@
+{
+  "id": "מספר זיהוי",
+  "auth": {
+    "layout": {
+      "terms": "תנאים והגבלות",
+      "privacy": "מדיניות פרטיות"
+    },
+    "login": {
+      "too_many_requests": "יותר מדי בקשות",
+      "title": "כניסה",
+      "email": "אימייל",
+      "password": "סיסמה",
+      "submit": "כניסה",
+      "create_account": "צור חשבון",
+      "forgot_password": "שכחת סיסמה?"
+    },
+    "signup": {
+      "title": "הרשמה לחשבון חדש",
+      "requirements": "אנא מלא את כל השדות הנדרשים כדי ליצור את החשבון שלך",
+      "username": "שם משתמש",
+      "email": "אימייל",
+      "email_placeholder": "הכנס את האימייל שלך",
+      "password": "סיסמה",
+      "password_placeholder": "הכנס סיסמה",
+      "submit": "צור חשבון",
+      "have_account": "יש לך כבר חשבון? התחבר",
+      "loading": "טוען..."
+    }
+  },
+  "dashboard": {
+    "page": {
+      "title": "לוח בקרה",
+      "welcome": "ברוכים הבאים ללוח הבקרה"
+    }
+  },
+  "super": {
+    "breadcrumb": {
+      "main": "לוח ניהול",
+      "main_users": "משתמשים",
+      "main_developers": "יזמים",
+      "main_properties": "נכסים",
+      "main_properties_create": "צור נכס",
+      "main_properties_propertie_id": "פרטי הנכס",
+      "main_properties_propertie_id_edit": "עריכת הנכס",
+      "main_contacts": "אנשי קשר",
+      "main_contacts_new": "איש קשר חדש"
+    },
+    "metadata": {
+      "title": "לוח ניהול",
+      "description": "ניהול המערכת וניטור"
+    },
+    "page": {
+      "welcome": "ברוכים הבאים ללוח הניהול"
+    },
+    "users": {
+      "page": {
+        "title": "ניהול משתמשים",
+        "create_user": "צור משתמש"
+      },
+      "create_user_button": {
+        "create_user": "צור משתמש"
+      },
+      "table": {
+        "username": "שם משתמש",
+        "email": "אימייל",
+        "roles": "תפקידים",
+        "actions": "פעולות",
+        "super_admin": "מנהל כללי",
+        "admin": "מנהל",
+        "remove_admin": "הסר מנהל",
+        "make_admin": "הפוך למנהל",
+        "remove_super_admin": "הסר מנהל כללי",
+        "make_super_admin": "הפוך למנהל כללי",
+        "login_as_user": "התחבר כמשתמש",
+        "change_username": "שנה שם משתמש",
+        "change_password": "שנה סיסמה",
+        "delete_user": "מחק משתמש",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "admin_toggled": "סטטוס המנהל שונה בהצלחה",
+          "super_admin_toggled": "סטטוס המנהל הכללי שונה בהצלחה",
+          "login_as_user": "התחברות כמשתמש הצליחה",
+          "error_message": "אירעה שגיאה בביצוע הפעולה"
+        }
+      },
+      "change_password_dialog": {
+        "title": "שנה סיסמה",
+        "description": "שנה סיסמה למשתמש",
+        "new_password": "סיסמה חדשה",
+        "new_password_placeholder": "הכנס סיסמה חדשה",
+        "cancel": "ביטול",
+        "changing": "משנה...",
+        "confirm": "אישור",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "password_changed": "הסיסמה שונתה בהצלחה",
+          "error_message": "אירעה שגיאה בשינוי הסיסמה"
+        }
+      },
+      "create_user_dialog": {
+        "title": "צור משתמש חדש",
+        "description": "הכנס פרטי המשתמש החדש",
+        "username": "שם משתמש",
+        "username_placeholder": "הכנס שם משתמש",
+        "email": "אימייל",
+        "email_placeholder": "הכנס אימייל",
+        "password": "סיסמה",
+        "password_placeholder": "הכנס סיסמה",
+        "is_admin": "מנהל",
+        "is_super_admin": "מנהל כללי",
+        "cancel": "ביטול",
+        "creating": "יוצר...",
+        "create": "צור",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "user_created": "המשתמש נוצר בהצלחה",
+          "error_message": "אירעה שגיאה ביצירת המשתמש"
+        }
+      },
+      "delete_user_dialog": {
+        "title": "מחק משתמש",
+        "description": "האם אתה בטוח שברצונך למחוק את המשתמש {username}?",
+        "cancel": "ביטול",
+        "deleting": "מוחק...",
+        "delete": "מחק",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "user_deleted": "המשתמש נמחק בהצלחה",
+          "error_message": "אירעה שגיאה במחיקת המשתמש"
+        }
+      },
+      "change_username_dialog": {
+        "title": "שנה שם משתמש",
+        "description": "שנה שם משתמש עבור המשתמש",
+        "new_username": "שם משתמש חדש",
+        "new_username_placeholder": "הזן שם משתמש חדש",
+        "cancel": "ביטול",
+        "changing": "משנה...",
+        "confirm": "אישור",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "username_changed": "שם המשתמש שונה בהצלחה",
+          "error_message": "אירעה שגיאה בשינוי שם המשתמש"
+        }
+      }
+    },
+    "developers": {
+      "page": {
+        "title": "ניהול יזמים",
+        "create_developer": "הוסף יזם"
+      },
+      "table": {
+        "name": "שם",
+        "email": "אימייל",
+        "phone": "טלפון",
+        "company_info": "מידע על החברה",
+        "total_properties": "סך הכל נכסים",
+        "created_at": "נוצר בתאריך",
+        "actions": "פעולות",
+        "edit_developer": "ערוך יזם",
+        "delete_developer": "מחק יזם",
+        "view_properties": "צפה בנכסים",
+        "no_developers": "לא נמצאו יזמים",
+        "search_placeholder": "חיפוש יזמים...",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "developer_created": "היזם נוצר בהצלחה",
+          "developer_updated": "היזם עודכן בהצלחה",
+          "developer_deleted": "היזם נמחק בהצלחה",
+          "error_message": "אירעה שגיאה בביצוע הפעולה"
+        }
+      },
+      "create_developer_dialog": {
+        "title": "הוסף יזם חדש",
+        "description": "הכנס פרטי היזם החדש",
+        "name": "שם",
+        "name_placeholder": "הכנס שם היזם",
+        "email": "אימייל",
+        "email_placeholder": "הכנס כתובת אימייל",
+        "phone": "טלפון",
+        "phone_placeholder": "הכנס מספר טלפון (אופציונלי)",
+        "company_info": "מידע על החברה",
+        "company_info_placeholder": "הכנס מידע על החברה (אופציונלי)",
+        "cancel": "ביטול",
+        "creating": "יוצר...",
+        "create": "צור",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "developer_created": "היזם נוצר בהצלחה",
+          "error_message": "אירעה שגיאה ביצירת היזם"
+        }
+      },
+      "edit_developer_dialog": {
+        "title": "ערוך יזם",
+        "description": "עדכן פרטי היזם",
+        "name": "שם",
+        "name_placeholder": "הכנס שם היזם",
+        "email": "אימייל",
+        "email_placeholder": "הכנס כתובת אימייל",
+        "phone": "טלפון",
+        "phone_placeholder": "הכנס מספר טלפון (אופציונלי)",
+        "company_info": "מידע על החברה",
+        "company_info_placeholder": "הכנס מידע על החברה (אופציונלי)",
+        "cancel": "ביטול",
+        "updating": "מעדכן...",
+        "update": "עדכן",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "developer_updated": "היזם עודכן בהצלחה",
+          "error_message": "אירעה שגיאה בעדכון היזם"
+        }
+      },
+      "delete_developer_dialog": {
+        "title": "מחק יזם",
+        "description": "האם אתה בטוח שברצונך למחוק את {name}?",
+        "description_with_properties": "ליזם הזה יש {count} נכסים מקושרים. האם אתה בטוח שברצונך למחוק את {name}?",
+        "cancel": "ביטול",
+        "deleting": "מוחק...",
+        "delete": "מחק",
+        "toast": {
+          "success": "הצלחה",
+          "error": "שגיאה",
+          "developer_deleted": "היזם נמחק בהצלחה",
+          "error_message": "אירעה שגיאה במחיקת היזם"
+        }
+      }
+    },
+    "sidebar": {
+      "platform": "פלטפורמה",
+      "users": "משתמשים",
+      "properties": "נכסים",
+      "developers": "יזמים",
+      "debug": "דיבוג",
+      "contacts": "אנשי קשר",
+      "families": "משפחות",
+      "user_controls": {
+        "upgradetopro": "שדרג ל-Pro",
+        "account": "חשבון",
+        "billing": "חיוב",
+        "notifications": "התראות",
+        "darkmode": "מצב כהה",
+        "lightmode": "מצב בהיר",
+        "logout": "התנתק"
+      }
+    },
+    "contacts": {
+      "page": {
+        "page_title": "ניהול אנשי קשר",
+        "add_contact_button": "הוסף איש קשר"
+      },
+      "contacts_list": {
+        "total_contacts": "סה\"כ אנשי קשר",
+        "total_households": "סה\"כ משקי בית",
+        "total_opted_in": "סה\"כ הסכימו",
+        "total_declined": "סה\"כ סירבו",
+        "total_didnt_respond": "סה\"כ לא הגיבו",
+        "total_failed": "סה\"כ נכשלו",
+        "total_didnt_send": "סה\"כ לא נשלחו",
+        "page": "עמוד",
+        "of": "מתוך",
+        "first_page": "העמוד הראשון",
+        "previous_page": "העמוד הקודם",
+        "next_page": "העמוד הבא",
+        "last_page": "העמוד האחרון",
+        "contacts_list": "רשימת אנשי קשר",
+        "view_contacts": "מציג {count} מתוך {total} אנשי קשר",
+        "consent_status": {
+          "gave_consent": "נתן הסכמה",
+          "no_response": "לא הגיב",
+          "declined": "סירב",
+          "concent_message_not_sent": "הודעת הסכמה לא נשלחה",
+          "concent_message_failed": "הודעת הסכמה נכשלה"
+        },
+        "contacts_table": {
+          "contact_title": "תואר",
+          "first_name": "שם פרטי",
+          "middle_name": "שם אמצעי",
+          "family_name": "שם משפחה",
+          "previous_family_name": "שם משפחה קודם",
+          "phone": "טלפון",
+          "village": "כפר",
+          "personal_number": "מספר אישי",
+          "home_number": "מספר בית",
+          "hood": "שכונה",
+          "admin_approval": "אישור מנהל",
+          "consent": "הסכמה",
+          "actions": "פעולות",
+          "no_contacts_found": "לא נמצאו אנשי קשר התואמים לפילטרים שנבחרו",
+          "search_placeholder": "חיפוש..."
+        },
+        "actions_dropdown": {
+          "actions": "פעולות",
+          "action_edit": "ערוך",
+          "action_delete": "מחק",
+          "action_mark_as_opt_out": "סמן כסירב",
+          "action_send_consent": "שלח הודעת הסכמה",
+          "action_reset_consent": "אפס הסכמה",
+          "approved": "מאושר",
+          "not_approved": "לא מאושר"
+        },
+        "status_dropdown": {
+          "concent_message_not_sent": "הודעת הסכמה לא נשלחה",
+          "no_response": "לא הגיב",
+          "gave_consent": "נתן הסכמה",
+          "declined": "סירב",
+          "concent_message_failed": "הודעת הסכמה נכשלה"
+        },
+        "send_all_consent_button": {
+          "send_consent_to_all": "שלח הסכמה לכולם",
+          "sending_all": "שולח...",
+          "sent_all": "נשלח לכולם"
+        },
+        "bulk_approval_button": {
+          "approve_all": "אשר הכל",
+          "approving_all": "מאשר הכל...",
+          "approved_all": "הכל אושר",
+          "unapprove_all": "בטל אישור הכל",
+          "unapproving_all": "מבטל אישור הכל...",
+          "unapproved_all": "אישור הכל בוטל"
+        },
+        "approved": "מאושר",
+        "not_approved": "לא מאושר",
+        "filters": {
+          "all_towns": "כל הכפרים",
+          "town": "כפר",
+          "select_town": "בחר כפר",
+          "all_streets": "כל השכונות",
+          "street": "שכונה",
+          "select_street": "בחר שכונה",
+          "all_families": "כל המשפחות",
+          "family": "משפחה",
+          "select_family": "בחר משפחה",
+          "all_statuses": "כל הסטטוסים",
+          "consent_status": {
+            "title": "סטטוס הסכמה"
+          },
+          "select_status": "בחר סטטוס",
+          "approval_status": "סטטוס אישור",
+          "gave_consent": "נתן הסכמה",
+          "no_response": "לא הגיב",
+          "declined": "סירב",
+          "concent_message_not_sent": "הודעת הסכמה לא נשלחה",
+          "concent_message_failed": "הודעת הסכמה נכשלה",
+          "approved": "מאושר",
+          "not_approved": "לא מאושר"
+        }
+      },
+      "new_contacts": {
+        "personal_info": "מידע אישי",
+        "first_name": "שם פרטי",
+        "middle_name": "שם אמצעי",
+        "previous_family": "שם משפחה קודם",
+        "birth_year": "שנת לידה",
+        "gender": "מגדר",
+        "select_gender": "בחר מגדר",
+        "family": "משפחה",
+        "select_family": "בחר משפחה",
+        "contact_info": "מידע ליצירת קשר",
+        "phone": "טלפון",
+        "phone_placeholder": "הכנס מספר טלפון",
+        "address_info": "מידע כתובת",
+        "personal_number": "מספר אישי",
+        "home_number": "מספר בית",
+        "hood": "שכונה",
+        "village": "כפר",
+        "adding_contact": "מוסיף...",
+        "add_contact": "הוסף איש קשר"
+      },
+      "edit_contact_form": {
+        "page_title": "ערוך איש קשר",
+        "first_name": "שם פרטי",
+        "middle_name": "שם אמצעי",
+        "family": "משפחה",
+        "select_family": "בחר משפחה",
+        "previous_family": "שם משפחה קודם",
+        "phone": "טלפון",
+        "phone_placeholder": "הכנס מספר טלפון",
+        "personal_number": "מספר אישי",
+        "home_number": "מספר בית",
+        "street_number": "מספר רחוב",
+        "town": "כפר",
+        "birth_year": "שנת לידה",
+        "gender": "מגדר",
+        "select_gender": "בחר מגדר",
+        "saving": "שומר...",
+        "save": "שמור"
+      }
+    }
+  },
+  "properties": {
+    "title": "ניהול נכסים",
+    "page": {
+      "title": "ניהול נכסים",
+      "description": "נהל את כל הנכסים במערכת"
+    },
+    "table": {
+      "title": "כותרת",
+      "price": "מחיר",
+      "location": "מיקום",
+      "property_type": "סוג נכס",
+      "listing_type": "סוג רשימה",
+      "bedrooms": "חדרי שינה",
+      "bathrooms": "חדרי רחצה",
+      "area": "שטח",
+      "is_available": "זמין",
+      "is_featured": "מומלץ",
+      "actions": "פעולות",
+      "edit_property": "ערוך נכס",
+      "delete_property": "מחק נכס",
+      "no_properties": "לא נמצאו נכסים"
+    },
+    "create_property_dialog": {
+      "title": "צור נכס חדש",
+      "description": "הוסף נכס חדש למערכת",
+      "title_label": "כותרת",
+      "title_placeholder": "וילה יוקרתית מודרנית",
+      "description_label": "תיאור",
+      "description_placeholder": "וילה מודרנית יפה עם נוף מרהיב על האוקיינוס...",
+      "property_type_label": "סוג נכס",
+      "listing_type_label": "סוג רשימה",
+      "price_label": "מחיר",
+      "area_label": "שטח (רגל מרובע)",
+      "bedrooms_label": "חדרי שינה",
+      "bathrooms_label": "חדרי רחצה",
+      "location_label": "מיקום",
+      "address_label": "כתובת מלאה",
+      "year_built_label": "שנת בנייה",
+      "parking_spaces_label": "חניות",
+      "latitude_label": "קו רוחב",
+      "longitude_label": "קו אורך",
+      "agent_name_label": "שם סוכן",
+      "agent_phone_label": "טלפון סוכן",
+      "agent_email_label": "אימייל סוכן",
+      "virtual_tour_url_label": "קישור סיור וירטואלי",
+      "monthly_rent_label": "שכירות חודשית",
+      "annual_appreciation_rate_label": "שיעור הערכה שנתי (%)",
+      "amenities_label": "שירותים",
+      "amenities_placeholder": "בריכה, נוף אוקיינוס, גן, מוסך (מופרד בפסיקים)",
+      "amenities_description": "הכנס שירותים מופרדים בפסיקים",
+      "is_available_label": "זמין",
+      "is_featured_label": "מומלץ",
+      "property_images_label": "תמונות נכס",
+      "cancel": "ביטול",
+      "creating": "יוצר...",
+      "create": "צור נכס",
+      "toast": {
+        "success": "הצלחה",
+        "error": "שגיאה",
+        "property_created": "הנכס נוצר בהצלחה",
+        "error_message": "אירעה שגיאה ביצירת הנכס"
+      }
+    },
+    "edit_property_dialog": {
+      "title": "ערוך נכס",
+      "description": "ערוך נכס: {title}",
+      "title_label": "כותרת",
+      "title_placeholder": "וילה יוקרתית מודרנית",
+      "description_label": "תיאור",
+      "description_placeholder": "וילה מודרנית יפה עם נוף מרהיב על האוקיינוס...",
+      "property_type_label": "סוג נכס",
+      "listing_type_label": "סוג רשימה",
+      "price_label": "מחיר",
+      "area_label": "שטח (רגל מרובע)",
+      "bedrooms_label": "חדרי שינה",
+      "bathrooms_label": "חדרי רחצה",
+      "location_label": "מיקום",
+      "address_label": "כתובת מלאה",
+      "year_built_label": "שנת בנייה",
+      "parking_spaces_label": "חניות",
+      "latitude_label": "קו רוחב",
+      "longitude_label": "קו אורך",
+      "agent_name_label": "שם סוכן",
+      "agent_phone_label": "טלפון סוכן",
+      "agent_email_label": "אימייל סוכן",
+      "virtual_tour_url_label": "קישור סיור וירטואלי",
+      "monthly_rent_label": "שכירות חודשית",
+      "annual_appreciation_rate_label": "שיעור הערכה שנתי (%)",
+      "amenities_label": "שירותים",
+      "amenities_placeholder": "בריכה, נוף אוקיינוס, גן, מוסך (מופרד בפסיקים)",
+      "amenities_description": "הכנס שירותים מופרדים בפסיקים",
+      "is_available_label": "זמין",
+      "is_featured_label": "מומלץ",
+      "property_images_label": "תמונות נכס",
+      "cancel": "ביטול",
+      "updating": "מעדכן...",
+      "update": "עדכן נכס",
+      "toast": {
+        "success": "הצלחה",
+        "error": "שגיאה",
+        "property_updated": "הנכס עודכן בהצלחה",
+        "error_message": "אירעה שגיאה בעדכון הנכס"
+      }
+    },
+    "delete_property_dialog": {
+      "title": "מחק נכס",
+      "description": "האם אתה בטוח שברצונך למחוק את הנכס {title}?",
+      "cancel": "ביטול",
+      "deleting": "מוחק...",
+      "delete": "מחק",
+      "toast": {
+        "success": "הצלחה",
+        "error": "שגיאה",
+        "property_deleted": "הנכס נמחק בהצלחה",
+        "error_message": "אירעה שגיאה במחיקת הנכס"
+      }
+    },
+    "property_types": {
+      "villa": "וילה",
+      "apartment": "דירה",
+      "house": "בית",
+      "commercial": "מסחרי",
+      "land": "קרקע",
+      "other": "אחר"
+    },
+    "listing_types": {
+      "sale": "למכירה",
+      "rent": "להשכרה",
+      "both": "שניהם"
+    },
+    "add_property": "הוסף נכס",
+    "create": {
+      "title": "צור נכס חדש",
+      "description": "הוסף נכס חדש למערכת"
+    },
+    "edit": {
+      "title": "ערוך נכס",
+      "description": "ערוך נכס"
+    }
+  },
+  "a11y": {
+    "accessibility": "נגישות",
+    "increaseTextSize": "הגדל טקסט",
+    "decreaseTextSize": "הקטן טקסט",
+    "grayscale": "גווני אפור",
+    "highContrast": "ניגודיות גבוהה",
+    "invertColors": "הפוך צבעים",
+    "highlightLinks": "הדגש קישורים",
+    "readableFont": "גופן קריא",
+    "textToSpeech": "טקסט לדיבור"
+  }
+}
