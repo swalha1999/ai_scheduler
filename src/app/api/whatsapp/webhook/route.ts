@@ -22,11 +22,14 @@ export async function POST(request: NextRequest) {
 	try {
 		// Get the raw body as text for signature verification
 		const body = await request.text();
+        console.log('Body:', body);
 		
 		// Get the signature from headers
 		const signature = request.headers.get('x-signature-256') || 
 						 request.headers.get('x-hub-signature-256') || 
 						 request.headers.get('signature');
+
+        console.log('Signature:', signature);
 		
 		if (!signature) {
             console.log('Missing signature header');
