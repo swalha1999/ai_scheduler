@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHmac, timingSafeEqual } from 'crypto';
 
-const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || 'secret';
+const WHATSAPP_WEBHOOK_SECRET = process.env.WHATSAPP_WEBHOOK_SECRET || 'secret';
 
 function verifySignature(payload: string, signature: string, secret: string): boolean {
     console.log('Payload:', payload);
