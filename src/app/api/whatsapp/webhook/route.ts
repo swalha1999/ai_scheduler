@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
 		}
 		
 		// Verify the signature
-		if (!verifySignature(body, signature, WEBHOOK_SECRET)) {
+		if (!verifySignature(body, signature, WHATSAPP_WEBHOOK_SECRET)) {
             console.log('Invalid signature');
 			return NextResponse.json(
 				{ error: 'Invalid signature' },
@@ -104,7 +104,7 @@ export async function GET(request: NextRequest) {
 	const verifyToken = searchParams.get('hub.verify_token');
 	
 	// Verify the token if provided
-	if (verifyToken && verifyToken !== WEBHOOK_SECRET) {
+	if (verifyToken && verifyToken !== WHATSAPP_WEBHOOK_SECRET) {
         console.log('Invalid verify token');
 		return NextResponse.json(
 			{ error: 'Invalid verify token' },
