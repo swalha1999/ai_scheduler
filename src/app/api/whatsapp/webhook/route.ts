@@ -93,6 +93,7 @@ export async function GET(request: NextRequest) {
 	
 	// Verify the token if provided
 	if (verifyToken && verifyToken !== WEBHOOK_SECRET) {
+        console.log('Invalid verify token');
 		return NextResponse.json(
 			{ error: 'Invalid verify token' },
 			{ status: 403 }
@@ -101,6 +102,7 @@ export async function GET(request: NextRequest) {
 	
 	// Return the challenge for webhook verification
 	if (challenge) {
+        console.log('Challenge:', challenge);
 		return new NextResponse(challenge, {
 			status: 200,
 			headers: {
@@ -108,6 +110,8 @@ export async function GET(request: NextRequest) {
 			},
 		});
 	}
+
+    console.log('Webhook endpoint is active');
 	
 	return NextResponse.json(
 		{ 
