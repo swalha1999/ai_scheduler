@@ -1,56 +1,17 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { createHmac, timingSafeEqual } from 'crypto';
 import { replayToWhatsapp } from '@/core/agents/chat';
+import dal from '@/data/access-layer-v2';
 import { GowaClient } from '@/lib/GOWA';
+import { NextRequest, NextResponse } from 'next/server';
 
-const WHATSAPP_WEBHOOK_SECRET = process.env.WHATSAPP_WEBHOOK_SECRET || 'secret';
-
-function verifySignature(payload: string, signature: string, secret: string): boolean {
-	const hmac = createHmac('sha256', secret);
-	hmac.update(payload);
-	const expectedSignature = hmac.digest('hex');
-	
-	// Remove 'sha256=' prefix if present
-	const cleanSignature = signature.replace(/^sha256=/, '');
-
-	// Use timing-safe comparison to prevent timing attacks
-	return timingSafeEqual(
-		Buffer.from(expectedSignature, 'hex'),
-		Buffer.from(cleanSignature, 'hex')
-	);
-}
+const gowa = new GowaClient(
+	undefined,
+	process.env.GOWA_API_KEY || ''
+);
 
 export async function POST(request: NextRequest) {
 	try {
-		// Get the raw body as text for signature verification
-		const body = await request.text();
 		
-		// Get the signature from headers
-		const signature = request.headers.get('x-signature-256') || 
-						 request.headers.get('x-hub-signature-256') || 
-						 request.headers.get('signature');
-
-		
-		if (!signature) {
-            console.log('Missing signature header');
-			return NextResponse.json(
-				{ error: 'Missing signature header' },
-				{ status: 401 }
-			);
-		}
-		
-		// Verify the signature
-		if (!verifySignature(body, signature, WHATSAPP_WEBHOOK_SECRET)) {
-            console.error('Whatsapp: Webhook signature verification failed');
-			return NextResponse.json(
-				{ error: 'Invalid signature' },
-				{ status: 401 }
-			);
-		}
-		
-		// Parse the verified payload
-		const payload = JSON.parse(body);
-		
+		const payload = await gowa.parseMessage(request);
 		// Log the received message (you can customize this)
 		console.log('Received webhook:', {
 			timestamp: new Date().toISOString(),
@@ -58,29 +19,88 @@ export async function POST(request: NextRequest) {
 		});
 		
 		// Process the received message here
-		// This is where you would handle the incoming message data
-		// For example:
-		// - Save to database
-		// - Send automated responses
-		// - Process message content
+		// Extract message data from payload
+		const messageText = payload.message?.text || '';
+		// this is not right formated must fix :) 
+		// we have @s.whatsapp.net at the end of the phone number
+		// and also some have the following format "+972599999999@s.whatsapp.net to/in 972599999999@s.whatsapp.net"
+		// Check and fix
+		const fromPhone = payload.from || ''; 
+		const whatsappId = payload.whatsapp_id || '';
+		const senderName = payload.sender_name || '';
 
-        const replay = await replayToWhatsapp(payload.message.text);
-        console.log('Replay:', replay);
+		if (!fromPhone) {
+			console.error('No phone number in payload');
+			return NextResponse.json(
+				{ error: 'No phone number in payload' },
+				{ status: 400 }
+			);
+		}
 
-        const gowa = new GowaClient(
-        	undefined,
-        	process.env.GOWA_API_KEY || ''
-        );
-        await gowa.sendMessage({
-            phone: payload.from,
-            message: replay
-        });
+		// Auto-create or find contact
+		try {
+			const contact = await dal.contacts.findOrCreateContact(
+				fromPhone,
+				whatsappId,
+				senderName
+			);
+			
+			console.log('Contact processed:', {
+				id: contact.id,
+				phone: contact.phone,
+				name: contact.name,
+			});
+
+			// Check if contact is whitelisted
+			// in the future we will handle this differently check if the contact is timeouted or blocked 
+			const isWhitelisted = await dal.contacts.isWhitelisted(contact.id);
+			
+			if (!isWhitelisted) {
+				console.log('Contact not whitelisted, skipping reply:', fromPhone);
+				return NextResponse.json(
+					{ 
+						success: true,
+						message: 'Message received but contact not whitelisted',
+						contact: {
+							id: contact.id,
+							phone: contact.phone,
+							name: contact.name,
+						},
+						isWhitelisted: false,
+					},
+					{ status: 200 }
+				);
+			}
+
+			// Contact is whitelisted, process and reply
+			const replay = await replayToWhatsapp(messageText);
+			console.log('Replay:', replay);
+
+			const gowa = new GowaClient(
+				undefined,
+				process.env.GOWA_API_KEY || ''
+			);
+			await gowa.sendMessage({
+				phone: fromPhone,
+				message: replay
+			});
+
+			console.log('Reply sent to whitelisted contact:', fromPhone);
+		} catch (error) {
+			console.error('Error processing contact or sending reply:', error);
+			return NextResponse.json(
+				{ error: 'Error processing message' },
+				{ status: 500 }
+			);
+		}
 		
 		return NextResponse.json(
 			{ 
 				success: true,
 				message: 'Webhook processed successfully',
-				timestamp: new Date().toISOString()
+				timestamp: new Date().toISOString(),
+				messageProcessed: true,
+				replySent: true,
 			},
 			{ status: 200 }
 		);
@@ -104,37 +124,5 @@ export async function POST(request: NextRequest) {
 
 // Handle GET requests for webhook verification (common for some webhook providers)
 export async function GET(request: NextRequest) {
-	const { searchParams } = new URL(request.url);
-	const challenge = searchParams.get('hub.challenge');
-	const verifyToken = searchParams.get('hub.verify_token');
-	
-	// Verify the token if provided
-	if (verifyToken && verifyToken !== WHATSAPP_WEBHOOK_SECRET) {
-        console.log('Invalid verify token');
-		return NextResponse.json(
-			{ error: 'Invalid verify token' },
-			{ status: 403 }
-		);
-	}
-	
-	// Return the challenge for webhook verification
-	if (challenge) {
-        console.log('Challenge:', challenge);
-		return new NextResponse(challenge, {
-			status: 200,
-			headers: {
-				'Content-Type': 'text/plain',
-			},
-		});
-	}
-
-    console.log('Webhook endpoint is active');
-	
-	return NextResponse.json(
-		{ 
-			message: 'Webhook endpoint is active',
-			timestamp: new Date().toISOString()
-		},
-		{ status: 200 }
-	);
+	return await gowa.handleWebhookVerification(request);
 } 

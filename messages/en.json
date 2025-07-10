@@ -31,6 +31,258 @@
     "page": {
       "title": "Dashboard",
       "welcome": "Welcome to the Dashboard"
+    },
+    "navigation": {
+      "contacts": {
+        "title": "Contacts",
+        "description": "Manage customer contacts and information"
+      },
+      "appointments": {
+        "title": "Appointments",
+        "description": "View and manage appointment bookings"
+      },
+      "restrictions": {
+        "title": "Restrictions",
+        "description": "Manage contact restrictions and permissions"
+      },
+      "messages": {
+        "title": "Messages",
+        "description": "View message history and analytics"
+      }
+    },
+    "stats": {
+      "totalContacts": "Total Contacts",
+      "pendingAppointments": "Pending Appointments",
+      "totalMessages": "Total Messages",
+      "whitelistedContacts": "Whitelisted",
+      "fromLastMonth": "From last month",
+      "thisWeek": "This week",
+      "activeContacts": "Active contacts"
+    },
+    "contacts": {
+      "title": "Contact Management",
+      "description": "Manage all customer contacts and their information",
+      "addContact": "Add Contact",
+      "backToDashboard": "Back to Dashboard",
+      "stats": {
+        "totalContacts": "Total Contacts",
+        "whitelistedContacts": "Whitelisted",
+        "recentMessages": "Recent Messages",
+        "comingSoon": "Coming soon"
+      },
+      "table": {
+        "title": "All Contacts",
+        "description": "View and manage all customer contacts",
+        "noContacts": "No contacts found",
+        "name": "Name",
+        "phone": "Phone",
+        "language": "Language",
+        "bookings": "Bookings",
+        "status": "Status",
+        "createdAt": "Created",
+        "actions": "Actions",
+        "unnamed": "Unnamed Contact",
+        "total": "total",
+        "cancelled": "cancelled",
+        "statusActive": "Active",
+        "viewDetails": "View Details",
+        "editContact": "Edit Contact",
+        "viewMessages": "View Messages",
+        "addToWhitelist": "Add to Whitelist",
+        "removeFromWhitelist": "Remove from Whitelist",
+        "blockContact": "Block Contact",
+        "timeoutContact": "Timeout Contact",
+        "deleteContact": "Delete Contact",
+        "whitelisted": "Whitelisted",
+        "blocked": "Blocked",
+        "totalResults": "results"
+      },
+      "editDialog": {
+        "title": "Edit Contact",
+        "description": "Update contact information",
+        "name": "Name",
+        "namePlaceholder": "Enter contact name",
+        "language": "Preferred Language",
+        "notes": "Notes",
+        "notesPlaceholder": "Add notes about this contact"
+      },
+      "whitelistDialog": {
+        "addTitle": "Add to Whitelist",
+        "removeTitle": "Remove from Whitelist",
+        "addDescription": "Allow this contact to send messages",
+        "removeDescription": "Remove this contact from the whitelist",
+        "reason": "Reason",
+        "reasonPlaceholder": "Why are you whitelisting this contact?"
+      },
+      "blockDialog": {
+        "title": "Block Contact",
+        "description": "Block this contact from sending messages",
+        "reason": "Reason",
+        "reasonPlaceholder": "Why are you blocking this contact?",
+        "confirm": "Block Contact"
+      },
+      "timeoutDialog": {
+        "title": "Timeout Contact",
+        "description": "Temporarily restrict this contact from sending messages",
+        "hours": "Duration",
+        "hour": "hour",
+        "week": "week",
+        "reason": "Reason",
+        "reasonPlaceholder": "Why are you timing out this contact?",
+        "confirm": "Apply Timeout"
+      },
+      "deleteDialog": {
+        "title": "Delete Contact",
+        "description": "Are you sure you want to delete {name}? This action cannot be undone.",
+        "confirm": "Delete Contact"
+      },
+      "messages": {
+        "title": "Contact Messages",
+        "subtitle": "Messages for {name} ({phone})",
+        "backToContacts": "Back to Contacts",
+        "contactInfo": "Contact Information",
+        "name": "Name",
+        "phone": "Phone",
+        "language": "Language",
+        "totalMessages": "Total Messages",
+        "messageHistory": "Message History",
+        "messageHistoryDescription": "All messages exchanged with this contact",
+        "noMessages": "No messages found for this contact",
+        "unnamedContact": "Unnamed Contact",
+        "received": "Received",
+        "sent": "Sent"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "results": "results"
+      },
+      "new": {
+        "title": "Add New Contact",
+        "description": "Create a new contact entry",
+        "backToContacts": "Back to Contacts",
+        "formTitle": "Contact Information",
+        "formDescription": "Enter the details for the new contact",
+        "form": {
+          "name": "Full Name",
+          "namePlaceholder": "Enter contact's full name",
+          "phone": "Phone Number",
+          "phonePlaceholder": "Enter phone number (without +)",
+          "phoneHint": "Enter number without country code. WhatsApp format will be added automatically.",
+          "language": "Preferred Language",
+          "languagePlaceholder": "Select preferred language",
+          "languageArabic": "Arabic",
+          "languageHebrew": "Hebrew",
+          "languageEnglish": "English",
+          "notes": "Notes",
+          "notesPlaceholder": "Add any additional notes about this contact",
+          "cancel": "Cancel",
+          "create": "Create Contact",
+          "creating": "Creating...",
+          "error": "Failed to create contact. Please try again."
+        }
+      }
+    },
+    "appointments": {
+      "title": "Appointments",
+      "description": "Manage and schedule appointments",
+      "addAppointment": "Add Appointment",
+      "stats": {
+        "totalAppointments": "Total Appointments",
+        "todayAppointments": "Today's Appointments",
+        "upcomingAppointments": "Upcoming",
+        "cancelledAppointments": "Cancelled"
+      },
+      "appointmentsView": "Appointments",
+      "appointmentsDescription": "View and manage your appointments in calendar or list format",
+      "calendarView": "Calendar View",
+      "listView": "List View",
+      "weekView": "Week",
+      "monthView": "Month",
+      "today": "Today",
+      "noAppointments": "No appointments",
+      "noAppointmentsDescription": "No appointments found for this period",
+      "monthViewComingSoon": "Month view coming soon",
+      "minutes": "min",
+      "notes": "Notes",
+      "timeUntil": "In",
+      "overdue": "Overdue",
+      "backToDashboard": "Back to Dashboard",
+      "status": {
+        "scheduled": "Scheduled",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "no_show": "No Show"
+      },
+      "actions": {
+        "edit": "Edit",
+        "reschedule": "Reschedule",
+        "cancel": "Cancel",
+        "cancelTitle": "Cancel Appointment",
+        "cancelDescription": "Are you sure you want to cancel the appointment with {contact} scheduled for {time}?",
+        "cancelReason": "Cancellation Reason",
+        "cancelReasonPlaceholder": "Optional reason for cancellation",
+        "cancelAction": "Cancel",
+        "confirmCancel": "Confirm Cancellation",
+        "cancelling": "Cancelling...",
+        "cancelError": "Failed to cancel appointment",
+        "rescheduleTitle": "Reschedule Appointment",
+        "rescheduleDescription": "Change the date and time for {contact}'s appointment",
+        "newDate": "New Date",
+        "newTime": "New Time",
+        "rescheduleReason": "Reason for Rescheduling",
+        "rescheduleReasonPlaceholder": "Optional reason for rescheduling",
+        "confirmReschedule": "Reschedule",
+        "rescheduling": "Rescheduling...",
+        "rescheduleError": "Failed to reschedule appointment",
+        "rescheduleValidation": "Please select both date and time",
+        "editTitle": "Edit Appointment",
+        "editDescription": "Update appointment details",
+        "duration": "Duration (minutes)",
+        "type": "Appointment Type",
+        "typePlaceholder": "e.g., consultation, follow-up",
+        "notesPlaceholder": "Add notes about this appointment",
+        "confirmUpdate": "Update",
+        "updating": "Updating...",
+        "updateError": "Failed to update appointment"
+      },
+      "new": {
+        "title": "Schedule New Appointment",
+        "description": "Create a new appointment for a contact",
+        "backToAppointments": "Back to Appointments",
+        "formTitle": "Appointment Details",
+        "formDescription": "Fill in the information for the new appointment",
+        "form": {
+          "contact": "Contact",
+          "contactPlaceholder": "Select a contact",
+          "unnamedContact": "Unnamed Contact",
+          "date": "Date",
+          "time": "Time",
+          "duration": "Duration",
+          "minutes": "minutes",
+          "type": "Appointment Type",
+          "typeConsultation": "Consultation",
+          "typeFollowUp": "Follow-up",
+          "typeEmergency": "Emergency",
+          "typeOther": "Other",
+          "notes": "Notes",
+          "notesPlaceholder": "Add notes about this appointment",
+          "cancel": "Cancel",
+          "create": "Schedule Appointment",
+          "creating": "Scheduling...",
+          "validation": "Please fill in all required fields",
+          "error": "Failed to create appointment. Please try again."
+        }
+      }
+    },
+    "common": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving...",
+      "processing": "Processing...",
+      "confirm": "Confirm",
+      "deleting": "Deleting..."
     }
   },
   "super": {

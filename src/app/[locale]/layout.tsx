@@ -5,8 +5,9 @@ import { AuthProvider } from '@/providers/auth-provider';
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import localFont from 'next/font/local';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import '../globals.css';
+import { deleteSessionTokenCookie, getCurrentSession, invalidateSession } from '@/core/auth/session';
 
 const geistSans = localFont({
 	src: '../fonts/GeistVF.woff',
@@ -40,10 +41,24 @@ export default async function RootLayout({
 	children: React.ReactNode;
 	params: Promise<{ locale: string }>;
 }) {
+
 	const { locale } = await params;
 	if (!hasLocale(routing.locales, locale)) {
 		notFound();
-	  }
+	}
+
+	const { user, session } = await getCurrentSession()
+
+	if (!user || !session) {
+		redirect('/login');
+	}
+
+	// if (!user.is_admin) {
+	// 	await deleteSessionTokenCookie();
+	// 	if (session) {
+	// 		await invalidateSession(session.id);
+	// 	}
+	// }
 
 	return (
 		<NextIntlClientProvider>

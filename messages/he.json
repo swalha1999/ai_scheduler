@@ -31,6 +31,258 @@
     "page": {
       "title": "לוח בקרה",
       "welcome": "ברוכים הבאים ללוח הבקרה"
+    },
+    "navigation": {
+      "contacts": {
+        "title": "אנשי קשר",
+        "description": "ניהול פרטי לקוחות ומידע ליצירת קשר"
+      },
+      "appointments": {
+        "title": "פגישות",
+        "description": "צפייה וניהול הזמנות פגישות"
+      },
+      "restrictions": {
+        "title": "הגבלות",
+        "description": "ניהול הגבלות והרשאות אנשי קשר"
+      },
+      "messages": {
+        "title": "הודעות",
+        "description": "צפייה בהיסטוריית הודעות ואנליטיקה"
+      }
+    },
+    "stats": {
+      "totalContacts": "סך הכל אנשי קשר",
+      "pendingAppointments": "פגישות ממתינות",
+      "totalMessages": "סך הכל הודעות",
+      "whitelistedContacts": "רשימה לבנה",
+      "fromLastMonth": "מהחודש שעבר",
+      "thisWeek": "השבוע",
+      "activeContacts": "אנשי קשר פעילים"
+    },
+    "contacts": {
+      "title": "ניהול אנשי קשר",
+      "description": "ניהול כל אנשי הקשר של הלקוחות והמידע שלהם",
+      "addContact": "הוסף איש קשר",
+      "backToDashboard": "חזרה ללוח הבקרה",
+      "stats": {
+        "totalContacts": "סך הכל אנשי קשר",
+        "whitelistedContacts": "רשימה לבנה",
+        "recentMessages": "הודעות אחרונות",
+        "comingSoon": "בקרוב"
+      },
+      "table": {
+        "title": "כל אנשי הקשר",
+        "description": "צפייה וניהול כל אנשי הקשר של הלקוחות",
+        "noContacts": "לא נמצאו אנשי קשר",
+        "name": "שם",
+        "phone": "טלפון",
+        "language": "שפה",
+        "bookings": "הזמנות",
+        "status": "סטטוס",
+        "createdAt": "נוצר",
+        "actions": "פעולות",
+        "unnamed": "איש קשר ללא שם",
+        "total": "סך הכל",
+        "cancelled": "בוטל",
+        "statusActive": "פעיל",
+        "viewDetails": "צפה בפרטים",
+        "editContact": "ערוך איש קשר",
+        "viewMessages": "צפה בהודעות",
+        "addToWhitelist": "הוסף לרשימה הלבנה",
+        "removeFromWhitelist": "הסר מהרשימה הלבנה",
+        "blockContact": "חסום איש קשר",
+        "timeoutContact": "השהה איש קשר זמנית",
+        "deleteContact": "מחק איש קשר",
+        "whitelisted": "ברשימה הלבנה",
+        "blocked": "חסום",
+        "totalResults": "תוצאות"
+      },
+      "editDialog": {
+        "title": "ערוך איש קשר",
+        "description": "עדכן פרטי איש קשר",
+        "name": "שם",
+        "namePlaceholder": "הכנס שם איש קשר",
+        "language": "שפה מועדפת",
+        "notes": "הערות",
+        "notesPlaceholder": "הוסף הערות על איש קשר זה"
+      },
+      "whitelistDialog": {
+        "addTitle": "הוסף לרשימה הלבנה",
+        "removeTitle": "הסר מהרשימה הלבנה",
+        "addDescription": "אפשר לאיש קשר זה לשלוח הודעות",
+        "removeDescription": "הסר איש קשר זה מהרשימה הלבנה",
+        "reason": "סיבה",
+        "reasonPlaceholder": "מדוע אתה מוסיף איש קשר זה לרשימה הלבנה?"
+      },
+      "blockDialog": {
+        "title": "חסום איש קשר",
+        "description": "מנע מאיש קשר זה לשלוח הודעות",
+        "reason": "סיבה",
+        "reasonPlaceholder": "מדוע אתה חוסם איש קשר זה?",
+        "confirm": "חסום איש קשר"
+      },
+      "timeoutDialog": {
+        "title": "השהה איש קשר זמנית",
+        "description": "הגבל איש קשר זה זמנית משליחת הודעות",
+        "hours": "משך זמן",
+        "hour": "שעה",
+        "week": "שבוע",
+        "reason": "סיבה",
+        "reasonPlaceholder": "מדוע אתה משהה איש קשר זה זמנית?",
+        "confirm": "הפעל השהיה"
+      },
+      "deleteDialog": {
+        "title": "מחק איש קשר",
+        "description": "האם אתה בטוח שברצונך למחוק את {name}? פעולה זו לא ניתנת לביטול.",
+        "confirm": "מחק איש קשר"
+      },
+      "messages": {
+        "title": "הודעות איש קשר",
+        "subtitle": "הודעות עבור {name} ({phone})",
+        "backToContacts": "חזור לאנשי קשר",
+        "contactInfo": "פרטי איש קשר",
+        "name": "שם",
+        "phone": "טלפון",
+        "language": "שפה",
+        "totalMessages": "סך הכל הודעות",
+        "messageHistory": "היסטוריית הודעות",
+        "messageHistoryDescription": "כל ההודעות שהוחלפו עם איש קשר זה",
+        "noMessages": "לא נמצאו הודעות עבור איש קשר זה",
+        "unnamedContact": "איש קשר ללא שם",
+        "received": "התקבל",
+        "sent": "נשלח"
+      },
+      "pagination": {
+        "showing": "מציג",
+        "to": "עד",
+        "of": "מתוך",
+        "results": "תוצאות"
+      },
+      "new": {
+        "title": "הוסף איש קשר חדש",
+        "description": "צור איש קשר חדש",
+        "backToContacts": "חזור לאנשי קשר",
+        "formTitle": "פרטי איש הקשר",
+        "formDescription": "הכנס את הפרטים עבור איש הקשר החדש",
+        "form": {
+          "name": "שם מלא",
+          "namePlaceholder": "הכנס שם מלא של איש הקשר",
+          "phone": "מספר טלפון",
+          "phonePlaceholder": "הכנס מספר טלפון (ללא +)",
+          "phoneHint": "הכנס מספר ללא קוד מדינה. פורמט הווטסאפ יתווסף אוטומטית.",
+          "language": "שפה מועדפת",
+          "languagePlaceholder": "בחר שפה מועדפת",
+          "languageArabic": "ערבית",
+          "languageHebrew": "עברית",
+          "languageEnglish": "אנגלית",
+          "notes": "הערות",
+          "notesPlaceholder": "הוסף הערות נוספות על איש קשר זה",
+          "cancel": "ביטול",
+          "create": "צור איש קשר",
+          "creating": "יוצר...",
+          "error": "נכשל ביצירת איש קשר. אנא נסה שוב."
+        }
+      }
+    },
+    "appointments": {
+      "title": "תורים",
+      "description": "ניהול ותזמון תורים",
+      "addAppointment": "הוסף תור",
+      "stats": {
+        "totalAppointments": "סך התורים",
+        "todayAppointments": "תורי היום",
+        "upcomingAppointments": "קרובים",
+        "cancelledAppointments": "מבוטלים"
+      },
+      "appointmentsView": "תורים",
+      "appointmentsDescription": "צפה ונהל את התורים שלך בפורמט לוח שנה או רשימה",
+      "calendarView": "תצוגת לוח שנה",
+      "listView": "תצוגת רשימה",
+      "weekView": "שבוע",
+      "monthView": "חודש",
+      "today": "היום",
+      "noAppointments": "אין תורים",
+      "noAppointmentsDescription": "לא נמצאו תורים לתקופה זו",
+      "monthViewComingSoon": "תצוגת חודש בקרוב",
+      "minutes": "דק׳",
+      "notes": "הערות",
+      "timeUntil": "בעוד",
+      "overdue": "מאוחר",
+      "backToDashboard": "חזור ללוח בקרה",
+      "status": {
+        "scheduled": "מתוזמן",
+        "completed": "הושלם",
+        "cancelled": "בוטל",
+        "no_show": "לא הגיע"
+      },
+      "actions": {
+        "edit": "ערוך",
+        "reschedule": "תזמן מחדש",
+        "cancel": "בטל",
+        "cancelTitle": "בטל תור",
+        "cancelDescription": "האם אתה בטוח שברצונך לבטל את התור עם {contact} המתוזמן ל-{time}?",
+        "cancelReason": "סיבת ביטול",
+        "cancelReasonPlaceholder": "סיבה אופציונלית לביטול",
+        "cancelAction": "ביטול",
+        "confirmCancel": "אישור ביטול",
+        "cancelling": "מבטל...",
+        "cancelError": "נכשל בביטול התור",
+        "rescheduleTitle": "תזמן תור מחדש",
+        "rescheduleDescription": "שנה את התאריך והשעה לתור של {contact}",
+        "newDate": "תאריך חדש",
+        "newTime": "שעה חדשה",
+        "rescheduleReason": "סיבה לתזמון מחדש",
+        "rescheduleReasonPlaceholder": "סיבה אופציונלית לתזמון מחדש",
+        "confirmReschedule": "תזמן מחדש",
+        "rescheduling": "מתזמן מחדש...",
+        "rescheduleError": "נכשל בתזמון התור מחדש",
+        "rescheduleValidation": "אנא בחר גם תאריך וגם שעה",
+        "editTitle": "ערוך תור",
+        "editDescription": "עדכן פרטי התור",
+        "duration": "משך (דקות)",
+        "type": "סוג התור",
+        "typePlaceholder": "למשל: ייעוץ, מעקב",
+        "notesPlaceholder": "הוסף הערות על התור הזה",
+        "confirmUpdate": "עדכן",
+        "updating": "מעדכן...",
+        "updateError": "נכשל בעדכון התור"
+      },
+      "new": {
+        "title": "תזמון תור חדש",
+        "description": "צור תור חדש עבור איש קשר",
+        "backToAppointments": "חזור לתורים",
+        "formTitle": "פרטי התור",
+        "formDescription": "מלא את המידע עבור התור החדש",
+        "form": {
+          "contact": "איש קשר",
+          "contactPlaceholder": "בחר איש קשר",
+          "unnamedContact": "איש קשר ללא שם",
+          "date": "תאריך",
+          "time": "שעה",
+          "duration": "משך",
+          "minutes": "דקות",
+          "type": "סוג התור",
+          "typeConsultation": "ייעוץ",
+          "typeFollowUp": "מעקב",
+          "typeEmergency": "חירום",
+          "typeOther": "אחר",
+          "notes": "הערות",
+          "notesPlaceholder": "הוסף הערות על התור הזה",
+          "cancel": "ביטול",
+          "create": "תזמן תור",
+          "creating": "מתזמן...",
+          "validation": "אנא מלא את כל השדות הנדרשים",
+          "error": "נכשל ביצירת התור. אנא נסה שוב."
+        }
+      }
+    },
+    "common": {
+      "cancel": "ביטול",
+      "save": "שמור",
+      "saving": "שומר...",
+      "processing": "מעבד...",
+      "confirm": "אישור",
+      "deleting": "מוחק..."
     }
   },
   "super": {
