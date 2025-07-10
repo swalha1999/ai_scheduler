@@ -48,11 +48,11 @@ export default async function RootLayout({
 		notFound();
 	}
 
-	const { user, session } = await getCurrentSession()
+	// const { user, session } = await getCurrentSession()
 
-	if (!user || !session) {
-		redirect('/login');
-	}
+	// if (!user || !session) {
+	// 	redirect('/login');
+	// }
 
 	// if (!user.is_admin) {
 	// 	await deleteSessionTokenCookie();
