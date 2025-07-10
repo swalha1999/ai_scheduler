@@ -8,6 +8,7 @@ import localFont from 'next/font/local';
 import { notFound, redirect } from 'next/navigation';
 import '../globals.css';
 import { deleteSessionTokenCookie, getCurrentSession, invalidateSession } from '@/core/auth/session';
+import { Toaster } from 'sonner';
 
 const geistSans = localFont({
 	src: '../fonts/GeistVF.woff',
@@ -70,6 +71,7 @@ export default async function RootLayout({
 						<ThemeProvider attribute="class" defaultTheme="light" enableSystem>
 							{children}
 							<AccessibilityButton />
+							<Toaster />
 						</ThemeProvider>
 					</AuthProvider>
 				</body>

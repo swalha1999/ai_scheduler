@@ -1,14 +1,10 @@
-import { GoogleSignInButton } from '@/components/google/GoogleSignInButton';
 import { redirect } from 'next/navigation';
 
 import { globalGETRateLimit } from '@/core/auth/request';
 import { getCurrentSession } from '@/core/auth/session';
-import Link from 'next/link';
 import { LoginForm } from './components';
-import { RegisterButton } from './components/register-button';
 
-import { Button } from '@/components/ui/button';
-import { getTranslations, getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
 export default async function Page() {
 	const locale = await getLocale();
@@ -21,16 +17,12 @@ export default async function Page() {
 
 	if (session !== null && user.google_id === null) {
 		if (!user.email_verified) {
-			return redirect(` /verify-email`);
+			return redirect(`/verify-email`);
 		}
 	}
 
 	if (session !== null) {
-		if (user.is_admin) {
-			return redirect(` /super`);
-		} else {
-			return redirect(` /super`);
-		}
+		redirect(`/dashboard`);
 	}
 
 	return (
