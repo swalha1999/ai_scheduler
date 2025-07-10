@@ -194,6 +194,8 @@ export class GowaClient {
 		
 		// Parse the verified payload
 		const rawPayload = JSON.parse(body);
+
+    console.log('Raw payload:', rawPayload);
 		
 		// Validate and return type-safe webhook object
 		const validationResult = WebhookSchema.safeParse(rawPayload);
