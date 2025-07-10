@@ -122,6 +122,17 @@ const WebhookSchema = z.object({
 	payload: WebhookPayloadSchema,
 });
 
+// Flexible webhook schema that handles both wrapped and direct message formats
+const FlexibleWebhookSchema = z.union([
+	// Standard wrapped format
+	WebhookSchema,
+	// Direct message format - transform to wrapped format
+	WebhookPayloadSchema.transform((data) => ({
+		timestamp: new Date().toISOString(),
+		payload: data
+	}))
+]);
+
 const WHATSAPP_WEBHOOK_SECRET = process.env.WHATSAPP_WEBHOOK_SECRET || 'secret';
 const GOWA_API_KEY = process.env.GOWA_API_KEY || '';
 const GOWA_BASE_URL = process.env.GOWA_BASE_URL || 'https://khalid.whatsapp.swalha.com';
@@ -195,13 +206,17 @@ export class GowaClient {
 		// Parse the verified payload
 		const rawPayload = JSON.parse(body);
 
-    console.log('Raw payload:', rawPayload);
+		console.log('Raw payload:', JSON.stringify(rawPayload, null, 2));
+		console.log('Raw payload keys:', Object.keys(rawPayload));
+		console.log('Payload field exists:', 'payload' in rawPayload);
+		console.log('Payload value:', rawPayload.payload);
 		
-		// Validate and return type-safe webhook object
-		const validationResult = WebhookSchema.safeParse(rawPayload);
+		// Validate and return type-safe webhook object using flexible schema
+		const validationResult = FlexibleWebhookSchema.safeParse(rawPayload);
 		if (!validationResult.success) {
-			console.error('Invalid webhook payload:', validationResult.error.message);
-			throw new Error(`Invalid webhook payload: ${validationResult.error.message}`);
+			console.error('Invalid webhook payload:', JSON.stringify(validationResult.error, null, 2));
+			console.error('Failed to validate data:', JSON.stringify(rawPayload, null, 2));
+			throw new Error(`Invalid webhook payload: ${JSON.stringify(validationResult.error.issues, null, 2)}`);
 		}
 		
 		return validationResult.data;
