@@ -64,6 +64,14 @@
       "description": "Manage all customer contacts and their information",
       "addContact": "Add Contact",
       "backToDashboard": "Back to Dashboard",
+      "common": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "saving": "Saving...",
+        "processing": "Processing...",
+        "confirm": "Confirm",
+        "deleting": "Deleting..."
+      },
       "stats": {
         "totalContacts": "Total Contacts",
         "whitelistedContacts": "Whitelisted",
@@ -124,7 +132,8 @@
       "timeoutDialog": {
         "title": "Timeout Contact",
         "description": "Temporarily restrict this contact from sending messages",
-        "hours": "Duration",
+        "duration": "Duration",
+        "hours": "hours",
         "hour": "hour",
         "week": "week",
         "reason": "Reason",

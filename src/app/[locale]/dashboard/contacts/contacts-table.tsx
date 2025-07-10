@@ -175,7 +175,6 @@ export default async function ContactsTable({ locale, currentPage, pageSize }: C
 										isWhitelisted={contact.isWhitelisted}
 										isBlocked={contact.isBlocked}
 										locale={locale}
-										t={t}
 									/>
 								</TableCell>
 							</TableRow>
@@ -193,7 +192,6 @@ export default async function ContactsTable({ locale, currentPage, pageSize }: C
 					hasPrevPage={hasPrevPage}
 					totalCount={totalCount}
 					pageSize={pageSize}
-					t={t}
 				/>
 			</div>
 		</>

@@ -64,6 +64,14 @@
       "description": "ניהול כל אנשי הקשר של הלקוחות והמידע שלהם",
       "addContact": "הוסף איש קשר",
       "backToDashboard": "חזרה ללוח הבקרה",
+      "common": {
+        "cancel": "ביטול",
+        "save": "שמור",
+        "saving": "שומר...",
+        "processing": "מעבד...",
+        "confirm": "אישור",
+        "deleting": "מוחק..."
+      },
       "stats": {
         "totalContacts": "סך הכל אנשי קשר",
         "whitelistedContacts": "רשימה לבנה",
@@ -124,7 +132,8 @@
       "timeoutDialog": {
         "title": "השהה איש קשר זמנית",
         "description": "הגבל איש קשר זה זמנית משליחת הודעות",
-        "hours": "משך זמן",
+        "duration": "משך זמן",
+        "hours": "שעות",
         "hour": "שעה",
         "week": "שבוע",
         "reason": "סיבה",

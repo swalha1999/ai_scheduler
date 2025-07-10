@@ -48,6 +48,9 @@ export default async function RootLayout({
 		notFound();
 	}
 
+	// Load messages for the current locale
+	const messages = (await import(`../../../messages/${locale}.json`)).default;
+
 	// const { user, session } = await getCurrentSession()
 
 	// if (!user || !session) {
@@ -62,7 +65,7 @@ export default async function RootLayout({
 	// }
 
 	return (
-		<NextIntlClientProvider>
+		<NextIntlClientProvider locale={locale} messages={messages}>
 			<html lang={locale} dir={locale === 'ar' || locale === 'he' ? 'rtl' : 'ltr'} suppressHydrationWarning>
 				<body
 					className={`${geistSans.variable} ${geistMono.variable} ${arabic.variable} antialiased`}

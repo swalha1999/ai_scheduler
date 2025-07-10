@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -26,10 +27,10 @@ interface ContactActionsProps {
 	isWhitelisted?: boolean;
 	isBlocked?: boolean;
 	locale: string;
-	t: any;
 }
 
-export function ContactActions({ contact, isWhitelisted = false, isBlocked = false, locale, t }: ContactActionsProps) {
+export function ContactActions({ contact, isWhitelisted = false, isBlocked = false, locale }: ContactActionsProps) {
+	const t = useTranslations('dashboard.contacts');
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 	
@@ -282,7 +283,7 @@ export function ContactActions({ contact, isWhitelisted = false, isBlocked = fal
 					</DialogHeader>
 					<div className="space-y-4">
 						<div>
-							<Label htmlFor="hours">{t('timeoutDialog.hours')}</Label>
+							<Label htmlFor="hours">{t('timeoutDialog.duration')}</Label>
 							<Select value={timeoutHours} onValueChange={setTimeoutHours}>
 								<SelectTrigger>
 									<SelectValue />

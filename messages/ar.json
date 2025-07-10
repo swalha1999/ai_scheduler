@@ -64,6 +64,14 @@
       "description": "إدارة جميع جهات اتصال العملاء ومعلوماتهم",
       "addContact": "إضافة جهة اتصال",
       "backToDashboard": "العودة للوحة التحكم",
+      "common": {
+        "cancel": "إلغاء",
+        "save": "حفظ",
+        "saving": "جاري الحفظ...",
+        "processing": "جاري المعالجة...",
+        "confirm": "تأكيد",
+        "deleting": "جاري الحذف..."
+      },
       "stats": {
         "totalContacts": "إجمالي جهات الاتصال",
         "whitelistedContacts": "القائمة البيضاء",
@@ -124,7 +132,8 @@
       "timeoutDialog": {
         "title": "إيقاف جهة الاتصال مؤقتاً",
         "description": "تقييد جهة الاتصال هذه مؤقتاً من إرسال الرسائل",
-        "hours": "المدة",
+        "duration": "المدة",
+        "hours": "ساعات",
         "hour": "ساعة",
         "week": "أسبوع",
         "reason": "السبب",

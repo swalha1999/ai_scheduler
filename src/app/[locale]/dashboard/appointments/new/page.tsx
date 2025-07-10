@@ -30,7 +30,7 @@ export default async function NewAppointmentPage({ params }: PageProps) {
 		<div className="container mx-auto p-6 space-y-6">
 			{/* Header */}
 			<div className="flex items-center gap-4">
-				<Link href={`/${resolvedParams.locale}/dashboard/appointments`}>
+				<Link href={`/dashboard/appointments`}>
 					<Button variant="outline" size="sm">
 						<ArrowLeft className="h-4 w-4 mr-2" />
 						{t('backToAppointments')}

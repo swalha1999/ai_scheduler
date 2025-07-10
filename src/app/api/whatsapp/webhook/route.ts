@@ -18,16 +18,26 @@ export async function POST(request: NextRequest) {
 			payload: payload
 		});
 		
-		// Process the received message here
-		// Extract message data from payload
-		const messageText = payload.message?.text || '';
-		// this is not right formated must fix :) 
-		// we have @s.whatsapp.net at the end of the phone number
-		// and also some have the following format "+972599999999@s.whatsapp.net to/in 972599999999@s.whatsapp.net"
-		// Check and fix
-		const fromPhone = payload.from || ''; 
-		const whatsappId = payload.whatsapp_id || '';
-		const senderName = payload.sender_name || '';
+	
+		// Extract message data from payload based on payload type
+		let messageText = '';
+		let fromPhone = '';
+		let senderName = '';
+		let shouldReply = false;
+
+		// Handle different payload types
+		if ('action' in payload.payload) {
+			// This is either message_edited or message_revoked
+			fromPhone = payload.payload.from;
+			senderName = payload.payload.pushname;
+			shouldReply = false; // Don't reply to edited or revoked messages
+		} else {
+			// This is a regular message
+			fromPhone = payload.payload.from;
+			senderName = payload.payload.pushname;
+			messageText = payload.payload.message.text || '';
+			shouldReply = !!messageText; // Only reply if there's text content
+		}
 
 		if (!fromPhone) {
 			console.error('No phone number in payload');
@@ -41,7 +51,7 @@ export async function POST(request: NextRequest) {
 		try {
 			const contact = await dal.contacts.findOrCreateContact(
 				fromPhone,
-				whatsappId,
+				'', // whatsappId not available in current payload
 				senderName
 			);
 			
@@ -72,14 +82,29 @@ export async function POST(request: NextRequest) {
 				);
 			}
 
+			// Skip replying to non-text messages (edited, revoked, etc.)
+			if (!shouldReply) {
+				const messageType = 'action' in payload.payload ? payload.payload.action : 'no text';
+				console.log('Skipping reply for message type:', messageType);
+				return NextResponse.json(
+					{ 
+						success: true,
+						message: 'Message received but no reply needed for this message type',
+						contact: {
+							id: contact.id,
+							phone: contact.phone,
+							name: contact.name,
+						},
+						isWhitelisted: true,
+					},
+					{ status: 200 }
+				);
+			}
+
 			// Contact is whitelisted, process and reply
 			const replay = await replayToWhatsapp(messageText);
 			console.log('Replay:', replay);
 
-			const gowa = new GowaClient(
-				undefined,
-				process.env.GOWA_API_KEY || ''
-			);
 			await gowa.sendMessage({
 				phone: fromPhone,
 				message: replay
@@ -99,7 +124,7 @@ export async function POST(request: NextRequest) {
 				success: true,
 				message: 'Webhook processed successfully',
 				timestamp: new Date().toISOString(),
-				messageProcessed: true,
+		
 				replySent: true,
 			},
 			{ status: 200 }

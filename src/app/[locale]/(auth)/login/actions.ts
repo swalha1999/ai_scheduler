@@ -6,7 +6,7 @@ import { RefillingTokenBucket, Throttler } from '@/core/auth/rate-limit';
 import { globalPOSTRateLimit } from '@/core/auth/request';
 import { createSession, generateSessionToken, setSessionTokenCookie } from '@/core/auth/session';
 import { getUserFromEmail, getUserPasswordHash } from '@/core/auth/user';
-import { headers } from 'next/headers';
+import { getClientIP } from '@/core/UserIP';
 
 import { ActionResult } from '@/types/actionType';
 import type { SessionFlags } from '@/core/auth/session';
@@ -24,8 +24,8 @@ export async function loginAction(_prev: ActionResult, formData: FormData): Prom
 			message: 'tooManyRequests',
 		};
 	}
-	// TODO: Assumes X-Forwarded-For is always included.
-	const clientIP = (await headers()).get('X-Forwarded-For');
+	// Use proper IP utility instead of manual header extraction
+	const clientIP = await getClientIP();
 	if (clientIP !== null && !ipBucket.consume(clientIP, 1)) {
 		return {
 			message: 'tooManyRequests',

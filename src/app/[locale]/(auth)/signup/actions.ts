@@ -12,13 +12,12 @@ import { RefillingTokenBucket } from '@/core/auth/rate-limit';
 import { globalPOSTRateLimit } from '@/core/auth/request';
 import { createSession, generateSessionToken, setSessionTokenCookie } from '@/core/auth/session';
 import { createUser, verifyUsernameInput } from '@/core/auth/user';
-import { headers } from 'next/headers';
+import { getClientIP } from '@/core/UserIP';
 
 import type { SessionFlags } from '@/core/auth/session';
 import { redirect } from '@/i18n/navigation';
 
-
-const ipBucket = new RefillingTokenBucket<string>(3, 10);
+const ipBucket = new RefillingTokenBucket<string>(10, 1);
 
 export async function signupAction(_prev: ActionResult, formData: FormData): Promise<ActionResult> {
 	const { locale } = _prev;
@@ -28,8 +27,8 @@ export async function signupAction(_prev: ActionResult, formData: FormData): Pro
 		};
 	}
 
-	// TODO: Assumes X-Forwarded-For is always included.
-	const clientIP = (await headers()).get('X-Forwarded-For');
+	// Use proper IP utility instead of manual header extraction
+	const clientIP = await getClientIP();
 	if (clientIP !== null && !ipBucket.check(clientIP, 1)) {
 		return {
 			message: 'tooManyRequests',

@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 
@@ -11,7 +12,6 @@ interface PaginationProps {
 	hasPrevPage: boolean;
 	totalCount: number;
 	pageSize: number;
-	t: any;
 }
 
 export function Pagination({
@@ -20,9 +20,9 @@ export function Pagination({
 	hasNextPage,
 	hasPrevPage,
 	totalCount,
-	pageSize,
-	t
+	pageSize
 }: PaginationProps) {
+	const t = useTranslations('dashboard.contacts');
 	const router = useRouter();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
