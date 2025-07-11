@@ -5,25 +5,28 @@ import { createHmac, timingSafeEqual } from 'crypto';
 
 // Utility function to clean phone numbers
 function cleanPhoneNumber(phone: string): string {
+	if (!phone || typeof phone !== 'string') return '';
 	return phone.replace(/@s\.whatsapp\.net|@g\.us/g, '');
 }
 
 // Function to extract sender phone from "sender in destination" format
 function extractSenderPhone(phoneString: string): string {
-	if (!phoneString) return '';
+	if (!phoneString || typeof phoneString !== 'string') return '';
 	const parts = phoneString.split(' in ');
 	const senderPart = parts[0];
+	if (!senderPart) return '';
 	return senderPart.replace(/@s\.whatsapp\.net|@g\.us/g, '');
 }
 
 // Function to extract destination from "sender in destination" format
 function extractDestination(phoneString: string): string {
-	if (!phoneString) return 'self';
+	if (!phoneString || typeof phoneString !== 'string') return 'self';
 	const parts = phoneString.split(' in ');
 	if (parts.length < 2) {
 		return 'self';
 	}
 	const destinationPart = parts[1];
+	if (!destinationPart) return 'self';
 	return destinationPart.replace(/@s\.whatsapp\.net|@g\.us/g, '');
 }
 
@@ -78,12 +81,17 @@ const DocumentSchema = z.object({
 
 // Regular message payload schema
 const RegularMessagePayloadSchema = z.preprocess((data: any) => {
-	if (data && data.from) {
-		return {
-			...data,
-			from: extractSenderPhone(data.from),
-			destination: extractDestination(data.from)
-		};
+	if (data && typeof data === 'object' && data.from) {
+		try {
+			return {
+				...data,
+				from: extractSenderPhone(data.from),
+				destination: extractDestination(data.from)
+			};
+		} catch (error) {
+			console.error('Error preprocessing regular message:', error);
+			return data;
+		}
 	}
 	return data;
 }, z.object({
@@ -103,12 +111,17 @@ const RegularMessagePayloadSchema = z.preprocess((data: any) => {
 
 // Message edited payload schema
 const MessageEditedPayloadSchema = z.preprocess((data: any) => {
-	if (data && data.from) {
-		return {
-			...data,
-			from: extractSenderPhone(data.from),
-			destination: extractDestination(data.from)
-		};
+	if (data && typeof data === 'object' && data.from) {
+		try {
+			return {
+				...data,
+				from: extractSenderPhone(data.from),
+				destination: extractDestination(data.from)
+			};
+		} catch (error) {
+			console.error('Error preprocessing edited message:', error);
+			return data;
+		}
 	}
 	return data;
 }, z.object({
@@ -126,13 +139,18 @@ const MessageEditedPayloadSchema = z.preprocess((data: any) => {
 
 // Message revoked payload schema
 const MessageRevokedPayloadSchema = z.preprocess((data: any) => {
-	if (data && data.from) {
-		return {
-			...data,
-			from: extractSenderPhone(data.from),
-			destination: extractDestination(data.from),
-			revoked_chat: cleanPhoneNumber(data.revoked_chat)
-		};
+	if (data && typeof data === 'object' && data.from) {
+		try {
+			return {
+				...data,
+				from: extractSenderPhone(data.from),
+				destination: extractDestination(data.from),
+				revoked_chat: cleanPhoneNumber(data.revoked_chat || '')
+			};
+		} catch (error) {
+			console.error('Error preprocessing revoked message:', error);
+			return data;
+		}
 	}
 	return data;
 }, z.object({
