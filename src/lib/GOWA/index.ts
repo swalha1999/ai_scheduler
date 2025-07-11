@@ -10,6 +10,7 @@ function cleanPhoneNumber(phone: string): string {
 
 // Function to extract sender phone from "sender in destination" format
 function extractSenderPhone(phoneString: string): string {
+	if (!phoneString) return '';
 	const parts = phoneString.split(' in ');
 	const senderPart = parts[0];
 	return senderPart.replace(/@s\.whatsapp\.net|@g\.us/g, '');
@@ -17,6 +18,7 @@ function extractSenderPhone(phoneString: string): string {
 
 // Function to extract destination from "sender in destination" format
 function extractDestination(phoneString: string): string {
+	if (!phoneString) return 'self';
 	const parts = phoneString.split(' in ');
 	if (parts.length < 2) {
 		return 'self';
@@ -41,6 +43,39 @@ const BaseMessageSchema = z.object({
 	quoted_message: z.string().optional(),
 });
 
+// Media schemas
+const LiveLocationSchema = z.object({
+	degreesLatitude: z.number(),
+	degreesLongitude: z.number(),
+	sequenceNumber: z.number(),
+	JPEGThumbnail: z.string().optional(),
+});
+
+const ImageSchema = z.object({
+	media_path: z.string(),
+	mime_type: z.string(),
+	caption: z.string().optional(),
+});
+
+const AudioSchema = z.object({
+	media_path: z.string(),
+	mime_type: z.string(),
+	caption: z.string().optional(),
+});
+
+const VideoSchema = z.object({
+	media_path: z.string(),
+	mime_type: z.string(),
+	caption: z.string().optional(),
+});
+
+const DocumentSchema = z.object({
+	media_path: z.string(),
+	mime_type: z.string(),
+	filename: z.string().optional(),
+	caption: z.string().optional(),
+});
+
 // Regular message payload schema
 const RegularMessagePayloadSchema = z.preprocess((data: any) => {
 	if (data && data.from) {
@@ -58,6 +93,12 @@ const RegularMessagePayloadSchema = z.preprocess((data: any) => {
 	message: BaseMessageSchema,
 	pushname: z.string(),
 	timestamp: z.string(),
+	// Media fields
+	live_location: LiveLocationSchema.optional(),
+	image: ImageSchema.optional(),
+	audio: AudioSchema.optional(),
+	video: VideoSchema.optional(),
+	document: DocumentSchema.optional(),
 }));
 
 // Message edited payload schema
@@ -143,6 +184,11 @@ export type RegularMessagePayload = z.infer<typeof RegularMessagePayloadSchema>;
 export type MessageEditedPayload = z.infer<typeof MessageEditedPayloadSchema>;
 export type MessageRevokedPayload = z.infer<typeof MessageRevokedPayloadSchema>;
 export type Webhook = z.infer<typeof WebhookSchema>;
+export type LiveLocation = z.infer<typeof LiveLocationSchema>;
+export type Image = z.infer<typeof ImageSchema>;
+export type Audio = z.infer<typeof AudioSchema>;
+export type Video = z.infer<typeof VideoSchema>;
+export type Document = z.infer<typeof DocumentSchema>;
 
 export class GowaClient {
 	private baseUrl: string;
