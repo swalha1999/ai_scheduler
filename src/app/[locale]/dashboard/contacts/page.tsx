@@ -8,15 +8,23 @@ import ContactsTable from './contacts-table';
 
 interface PageProps {
 	params: Promise<{ locale: string }>;
-	searchParams: Promise<{ page?: string }>;
+	searchParams: Promise<{ 
+		page?: string;
+		name?: string;
+		phone?: string;
+		language?: string;
+		status?: string;
+	}>;
 }
 
 async function getContactsStats() {
 	try {
-		const totalCount = await dal.contacts.getContactCount();
+		const totalCountResult = await dal.contacts.getContactCount();
+		// The count method returns an array with an object containing the count
+		const total = Number(totalCountResult[0]?.count) || 0;
 		// TODO: Get whitelisted count from DAL when available
 		return {
-			total: Number(totalCount) || 0,
+			total,
 			whitelisted: 0,
 		};
 	} catch (error) {
@@ -32,6 +40,14 @@ export default async function ContactsPage({ params, searchParams }: PageProps) 
 	const currentPage = Number(resolvedSearchParams.page) || 1;
 	const pageSize = 25;
 	const stats = await getContactsStats();
+	
+	// Extract search parameters
+	const tableSearchParams = {
+		name: resolvedSearchParams.name,
+		phone: resolvedSearchParams.phone,
+		language: resolvedSearchParams.language,
+		status: resolvedSearchParams.status,
+	};
 
 	return (
 		<div className="container mx-auto p-6 space-y-6">
@@ -105,6 +121,7 @@ export default async function ContactsPage({ params, searchParams }: PageProps) 
 						locale={resolvedParams.locale}
 						currentPage={currentPage}
 						pageSize={pageSize}
+						searchParams={tableSearchParams}
 					/>
 				</CardContent>
 			</Card>

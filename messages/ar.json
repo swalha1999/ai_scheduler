@@ -103,7 +103,17 @@
         "deleteContact": "حذف جهة الاتصال",
         "whitelisted": "في القائمة البيضاء",
         "blocked": "محظور",
-        "totalResults": "نتيجة"
+        "totalResults": "نتيجة",
+        "searchName": "البحث بالاسم...",
+        "searchPhone": "البحث بالهاتف...",
+        "searchLanguage": "البحث باللغة...",
+        "searchStatus": "البحث بالحالة..."
+      },
+      "pagination": {
+        "showing": "عرض",
+        "to": "إلى",
+        "of": "من",
+        "results": "نتيجة"
       },
       "editDialog": {
         "title": "تعديل جهة الاتصال",
@@ -161,12 +171,7 @@
         "received": "مستلم",
         "sent": "مرسل"
       },
-      "pagination": {
-        "showing": "عرض",
-        "to": "إلى",
-        "of": "من",
-        "results": "نتيجة"
-      },
+
       "new": {
         "title": "إضافة جهة اتصال جديدة",
         "description": "إنشاء جهة اتصال جديدة",

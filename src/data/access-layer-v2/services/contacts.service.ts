@@ -13,9 +13,9 @@ export class ContactsService extends BaseService {
 		return await this.contactsRepo.findAll();
 	}
 
-	async getContactsWithPagination(sort: 'asc' | 'desc', page: number, limit: number) {
+	async getContactsWithPagination(sort: 'asc' | 'desc', page: number, limit: number, searchParams?: any) {
 		await this.requireAdmin();
-		return await this.contactsRepo.findWithPagination(sort, page, limit);
+		return await this.contactsRepo.findWithPagination(sort, page, limit, searchParams);
 	}
 
 	async getContactById(id: number) {
@@ -77,9 +77,9 @@ export class ContactsService extends BaseService {
 		return await this.contactsRepo.search(query);
 	}
 
-	async getContactCount() {
+	async getContactCount(searchParams?: any) {
 		await this.requireAdmin();
-		return await this.contactsRepo.count();
+		return await this.contactsRepo.count(searchParams);
 	}
 
 	// Whitelist-related methods
@@ -155,5 +155,11 @@ export class ContactsService extends BaseService {
 	// Auto-create contact when receiving messages
 	async findOrCreateContact(phone: string, whatsappId?: string, name?: string) {
 		return await this.contactsRepo.findOrCreate(phone, whatsappId, name);
+	}
+
+	// Batch operations for better performance
+	async getBatchRestrictions(contactIds: number[]) {
+		await this.requireAuth();
+		return await this.restrictionsRepo.getBatchRestrictions(contactIds);
 	}
 } 

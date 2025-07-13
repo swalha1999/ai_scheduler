@@ -5,18 +5,26 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { UserIcon, PhoneIcon } from 'lucide-react';
 import { ContactActions } from '@/components/dashboard/contact-actions';
 import { Pagination } from '@/components/dashboard/pagination';
+import { TableSearchInput } from '@/components/dashboard/table-search-input';
 
 interface ContactsTableProps {
 	locale: string;
 	currentPage: number;
 	pageSize: number;
+	searchParams: {
+		name?: string;
+		phone?: string;
+		language?: string;
+		status?: string;
+	};
 }
 
-async function getContactsWithPagination(page: number, pageSize: number) {
+async function getContactsWithPagination(page: number, pageSize: number, searchParams: any) {
 	try {
-		const contacts = await dal.contacts.getContactsWithPagination('desc', page, pageSize);
-		const totalCount = await dal.contacts.getContactCount();
-		const count: number = Number(totalCount) || 0;
+		const contacts = await dal.contacts.getContactsWithPagination('desc', page, pageSize, searchParams);
+		const totalCountResult = await dal.contacts.getContactCount(searchParams);
+		// The count method returns an array with an object containing the count
+		const count: number = Number(totalCountResult[0]?.count) || 0;
 		
 		return {
 			contacts: contacts || [],
@@ -37,30 +45,11 @@ async function getContactsWithPagination(page: number, pageSize: number) {
 	}
 }
 
-async function checkContactRestrictions(contactId: number) {
-	try {
-		const isWhitelisted = await dal.contacts.isWhitelisted(contactId);
-		const isBlocked = await dal.contacts.isBlocked(contactId);
-		
-		return {
-			isWhitelisted,
-			isBlocked,
-			// TODO: Add timeout check when implemented
-			isTimedOut: false,
-		};
-	} catch (error) {
-		console.error('Error checking contact restrictions:', error);
-		return {
-			isWhitelisted: false,
-			isBlocked: false,
-			isTimedOut: false,
-		};
-	}
-}
 
-export default async function ContactsTable({ locale, currentPage, pageSize }: ContactsTableProps) {
+
+export default async function ContactsTable({ locale, currentPage, pageSize, searchParams }: ContactsTableProps) {
 	const t = await getTranslations('dashboard.contacts');
-	const { contacts, totalCount, totalPages, hasNextPage, hasPrevPage } = await getContactsWithPagination(currentPage, pageSize);
+	const { contacts, totalCount, totalPages, hasNextPage, hasPrevPage } = await getContactsWithPagination(currentPage, pageSize, searchParams);
 
 	const formatDate = (dateString: string | Date) => {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -75,13 +64,19 @@ export default async function ContactsTable({ locale, currentPage, pageSize }: C
 		return phone.replace('@s.whatsapp.net', '');
 	};
 
-	// Get restriction status for contacts (batch check would be more efficient)
-	const contactsWithRestrictions = await Promise.all(
-		contacts.map(async (contact) => {
-			const restrictions = await checkContactRestrictions(contact.id);
-			return { ...contact, ...restrictions };
-		})
-	);
+	// Get restriction status for contacts using batch operation
+	const contactIds = contacts.map(contact => contact.id);
+	const batchRestrictions = await dal.contacts.getBatchRestrictions(contactIds);
+	
+	const contactsWithRestrictions = contacts.map(contact => {
+		const restrictions = batchRestrictions[contact.id] || { isWhitelisted: false, isBlocked: false };
+		return { 
+			...contact, 
+			isWhitelisted: restrictions.isWhitelisted,
+			isBlocked: restrictions.isBlocked,
+			isTimedOut: false // TODO: Add timeout check when implemented
+		};
+	});
 
 	if (contacts.length === 0) {
 		return (
@@ -104,6 +99,45 @@ export default async function ContactsTable({ locale, currentPage, pageSize }: C
 							<TableHead>{t('table.status')}</TableHead>
 							<TableHead>{t('table.createdAt')}</TableHead>
 							<TableHead className="w-[50px]">{t('table.actions')}</TableHead>
+						</TableRow>
+						<TableRow>
+							<TableHead className="p-2">
+								<TableSearchInput
+									placeholder={t('table.searchName')}
+									searchKey="name"
+									className="w-full"
+								/>
+							</TableHead>
+							<TableHead className="p-2">
+								<TableSearchInput
+									placeholder={t('table.searchPhone')}
+									searchKey="phone"
+									className="w-full"
+								/>
+							</TableHead>
+							<TableHead className="p-2">
+								<TableSearchInput
+									placeholder={t('table.searchLanguage')}
+									searchKey="language"
+									className="w-full"
+								/>
+							</TableHead>
+							<TableHead className="p-2">
+								{/* No search for bookings */}
+							</TableHead>
+							<TableHead className="p-2">
+								<TableSearchInput
+									placeholder={t('table.searchStatus')}
+									searchKey="status"
+									className="w-full"
+								/>
+							</TableHead>
+							<TableHead className="p-2">
+								{/* No search for created date */}
+							</TableHead>
+							<TableHead className="p-2">
+								{/* No search for actions */}
+							</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>

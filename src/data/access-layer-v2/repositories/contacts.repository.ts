@@ -1,4 +1,4 @@
-import { eq, asc, desc, or, like, sql } from 'drizzle-orm';
+import { eq, asc, desc, or, like, sql, and, ilike, isNotNull } from 'drizzle-orm';
 import { contacts, type Contact } from '@/data/access-layer-v2/schemas/contacts.schema';
 import { BaseRepository } from './base';
 import { contactInterfaceSelect } from '../interfaces/contact.interface';
@@ -8,12 +8,36 @@ export class ContactsRepository extends BaseRepository {
 		return await this.db.select(contactInterfaceSelect).from(contacts).orderBy(asc(contacts.id));
 	}
 
-	async findWithPagination(sort: 'asc' | 'desc', page: number, limit: number) {
+	async findWithPagination(sort: 'asc' | 'desc', page: number, limit: number, searchParams?: any) {
+		const conditions = [];
+
+		if (searchParams) {
+			if (searchParams.name) {
+				conditions.push(like(contacts.name, `%${searchParams.name}%`));
+			}
+			if (searchParams.phone) {
+				conditions.push(like(contacts.phone, `%${searchParams.phone}%`));
+			}
+			if (searchParams.language) {
+				conditions.push(like(contacts.preferred_language, `%${searchParams.language}%`));
+			}
+		}
+
+
+		if (conditions.length > 0) {
+			return await this.db.select(contactInterfaceSelect)
+				.from(contacts)
+				.where(and(...conditions))
+				.orderBy(sort === 'asc' ? asc(contacts.id) : desc(contacts.id))
+				.limit(limit)
+				.offset((page - 1) * limit)
+		}
+
 		return await this.db.select(contactInterfaceSelect)
 			.from(contacts)
 			.orderBy(sort === 'asc' ? asc(contacts.id) : desc(contacts.id))
 			.limit(limit)
-			.offset((page - 1) * limit);
+			.offset((page - 1) * limit)
 	}
 
 	async findById(id: number) {
@@ -63,7 +87,27 @@ export class ContactsRepository extends BaseRepository {
 			));
 	}
 
-	async count() {
+	async count(searchParams?: any) {
+		const conditions = [];
+
+		if (searchParams) {
+			if (searchParams.name) {
+				conditions.push(like(contacts.name, `%${searchParams.name}%`));
+			}
+			if (searchParams.phone) {
+				conditions.push(like(contacts.phone, `%${searchParams.phone}%`));
+			}
+			if (searchParams.language) {
+				conditions.push(like(contacts.preferred_language, `%${searchParams.language}%`));
+			}
+		}
+
+		if (conditions.length > 0) {
+			return await this.db.select({ count: sql<number>`count(*)` })
+				.from(contacts)
+				.where(and(...conditions));
+		}
+
 		return await this.db.select({ count: sql<number>`count(*)` }).from(contacts);
 	}
 

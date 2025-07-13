@@ -103,7 +103,17 @@
         "deleteContact": "מחק איש קשר",
         "whitelisted": "ברשימה הלבנה",
         "blocked": "חסום",
-        "totalResults": "תוצאות"
+        "totalResults": "תוצאות",
+        "searchName": "חיפוש לפי שם...",
+        "searchPhone": "חיפוש לפי טלפון...",
+        "searchLanguage": "חיפוש לפי שפה...",
+        "searchStatus": "חיפוש לפי סטטוס..."
+      },
+      "pagination": {
+        "showing": "מציג",
+        "to": "עד",
+        "of": "מתוך",
+        "results": "תוצאות"
       },
       "editDialog": {
         "title": "ערוך איש קשר",

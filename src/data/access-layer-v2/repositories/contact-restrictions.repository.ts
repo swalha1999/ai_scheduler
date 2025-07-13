@@ -1,4 +1,4 @@
-import { eq, asc, desc, and, or, sql } from 'drizzle-orm';
+import { eq, asc, desc, and, or, sql, inArray } from 'drizzle-orm';
 import { contact_restrictions, type ContactRestriction } from '@/data/access-layer-v2/schemas/contact-restrictions.schema';
 import { contacts } from '@/data/access-layer-v2/schemas/contacts.schema';
 import { BaseRepository } from './base';
@@ -174,5 +174,42 @@ export class ContactRestrictionsRepository extends BaseRepository {
 				eq(contact_restrictions.status, 'active')
 			))
 			.returning();
+	}
+
+	// Batch operations for better performance
+	async getBatchRestrictions(contactIds: number[]): Promise<{ [contactId: number]: { isWhitelisted: boolean; isBlocked: boolean } }> {
+		if (contactIds.length === 0) return {};
+
+		const restrictions = await this.db.select({
+			contact_id: contact_restrictions.contact_id,
+			restriction_type: contact_restrictions.restriction_type,
+		})
+		.from(contact_restrictions)
+		.where(and(
+			inArray(contact_restrictions.contact_id, contactIds),
+			eq(contact_restrictions.status, 'active'),
+			or(
+				eq(contact_restrictions.restriction_type, 'whitelist'),
+				eq(contact_restrictions.restriction_type, 'blocklist')
+			)
+		));
+
+		const result: { [contactId: number]: { isWhitelisted: boolean; isBlocked: boolean } } = {};
+
+		// Initialize all contacts with false values
+		contactIds.forEach(id => {
+			result[id] = { isWhitelisted: false, isBlocked: false };
+		});
+
+		// Update based on actual restrictions
+		restrictions.forEach(restriction => {
+			if (restriction.restriction_type === 'whitelist') {
+				result[restriction.contact_id].isWhitelisted = true;
+			} else if (restriction.restriction_type === 'blocklist') {
+				result[restriction.contact_id].isBlocked = true;
+			}
+		});
+
+		return result;
 	}
 } 

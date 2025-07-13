@@ -38,6 +38,10 @@ export function Pagination({
 
 	// Calculate page numbers to show
 	const getPageNumbers = () => {
+		// Handle edge cases
+		if (totalPages <= 0) return [1];
+		if (totalPages === 1) return [1];
+		
 		const delta = 2; // Show 2 pages before and after current page
 		const range = [];
 		const rangeWithDots = [];
@@ -71,8 +75,6 @@ export function Pagination({
 
 	const pageNumbers = getPageNumbers();
 
-	if (totalPages <= 1) return null;
-
 	return (
 		<div className="flex items-center justify-between px-2">
 			<div className="flex-1 text-sm text-muted-foreground">
@@ -85,7 +87,7 @@ export function Pagination({
 					variant="outline"
 					size="sm"
 					onClick={() => router.push(createPageURL(1))}
-					disabled={!hasPrevPage}
+					disabled={!hasPrevPage || totalPages <= 1}
 					className="h-8 w-8 p-0"
 				>
 					<ChevronsLeft className="h-4 w-4" />
@@ -96,7 +98,7 @@ export function Pagination({
 					variant="outline"
 					size="sm"
 					onClick={() => router.push(createPageURL(currentPage - 1))}
-					disabled={!hasPrevPage}
+					disabled={!hasPrevPage || totalPages <= 1}
 					className="h-8 w-8 p-0"
 				>
 					<ChevronLeft className="h-4 w-4" />
@@ -121,7 +123,7 @@ export function Pagination({
 					variant="outline"
 					size="sm"
 					onClick={() => router.push(createPageURL(currentPage + 1))}
-					disabled={!hasNextPage}
+					disabled={!hasNextPage || totalPages <= 1}
 					className="h-8 w-8 p-0"
 				>
 					<ChevronRight className="h-4 w-4" />
@@ -132,7 +134,7 @@ export function Pagination({
 					variant="outline"
 					size="sm"
 					onClick={() => router.push(createPageURL(totalPages))}
-					disabled={!hasNextPage}
+					disabled={!hasNextPage || totalPages <= 1}
 					className="h-8 w-8 p-0"
 				>
 					<ChevronsRight className="h-4 w-4" />

@@ -103,7 +103,17 @@
         "deleteContact": "Delete Contact",
         "whitelisted": "Whitelisted",
         "blocked": "Blocked",
-        "totalResults": "results"
+        "totalResults": "results",
+        "searchName": "Search by name...",
+        "searchPhone": "Search by phone...",
+        "searchLanguage": "Search by language...",
+        "searchStatus": "Search by status..."
+      },
+      "pagination": {
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "results": "results"
       },
       "editDialog": {
         "title": "Edit Contact",
@@ -161,12 +171,7 @@
         "received": "Received",
         "sent": "Sent"
       },
-      "pagination": {
-        "showing": "Showing",
-        "to": "to",
-        "of": "of",
-        "results": "results"
-      },
+
       "new": {
         "title": "Add New Contact",
         "description": "Create a new contact entry",
